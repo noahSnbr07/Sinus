@@ -26,7 +26,6 @@ const initialValue: SongProps = {
 export const SongProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
    const [song, setSong] = useState<SongProps>(initialValue);
 
-   useEffect(() => { console.table(song) }, [song]);
    return (
       <SongContext.Provider value={{ song, setSong }}>
          {children}

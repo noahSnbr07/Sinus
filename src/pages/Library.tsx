@@ -45,7 +45,6 @@ export default function Library() {
       <Page className='overflow-y-scroll'>
          {data.map((song: SongProps) => <SongLink key={song.id} songParam={song} />)}
          <UploadSongButton />
-
       </Page>
    );
 }

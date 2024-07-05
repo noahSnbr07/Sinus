@@ -22,7 +22,7 @@ export default function SongLink({ songParam }: SongLinkProps) {
                   src={cover}
                   alt={`cover of ${name}`} />
                <div className='text-start'>
-                  <b className={` text-xl ${song.name === songParam.name ? "text-accent" : "text-white"}`}> {name} </b>
+                  <p className={`truncate w-4 text-xl ${song.name === songParam.name ? "text-accent" : "text-white"}`}> {name} </p>
                   <p className='text-stack-neutral' >
                      {artist}
                   </p>

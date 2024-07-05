@@ -37,7 +37,6 @@ export default function MiniPlayer() {
             min={0}
             max={song.length}
             value={song.length / 3}
-            onChange={(e) => console.log(e.target.value)}
             className="appearance-none bg-stack-light rounded-full h-2 flex-grow accent-white"
          />
          <div className="flex gap-5">

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { NewsArticleProps } from '../interfaces/interfaces';
 import NewsArticle from '../components/NewsArticle';
 import BackendStats from '../components/BackendStats';
+import TabPlayer from '../components/TabPlayer';
 
 export default function Home() {
    const [news] = useState<NewsArticleProps[]>([...newsJSON]);
@@ -26,8 +27,9 @@ export default function Home() {
 
    return (
       <Page className='p-5 flex flex-col gap-5' scrollY>
-         <NewsContainer />
+         <TabPlayer />
          <BackendStats />
+         <NewsContainer />
       </Page>
    );
 }

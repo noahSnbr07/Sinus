@@ -20,7 +20,6 @@ export const SongQueueProvider: React.FC<{ children: ReactNode }> = ({ children 
       onValue(dbRef, (snap: DataSnapshot) => {
          const resp: SongProps[] = snap.val();
          setSongQueue(resp);
-         console.log(resp);
       });
    }, [db]);
 

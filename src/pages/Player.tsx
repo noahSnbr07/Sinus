@@ -62,7 +62,7 @@ export default function Player() {
 
       const NameAndArtist = () => (
          <div className='flex flex-col'>
-            <b className='text-xl'> {song.name} </b>
+            <b className='text-xl truncate w-72'> {song.name} </b>
             <p className='italic text-stack-neutral'> {song.artist} </p>
          </div>
       );
