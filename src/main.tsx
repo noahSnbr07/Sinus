@@ -6,40 +6,23 @@ import { BrowserRouter } from 'react-router-dom';
 import { SongProvider } from './context/SongProvider.tsx';
 import { PlayerProvider } from './context/PlayerProvider.tsx';
 import { AudioRefProvider } from './context/AudioRefProvider.tsx';
-import { SongQueueProvider } from './context/SongQueueProvider.tsx';
+import { DataProvider } from './context/DataProvider.tsx';
+import { UserProvider } from './context/UserProvider.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
-
-
-
-
-
-
-      <SongQueueProvider>
-
-        <AudioRefProvider>
-
-          <SongProvider>
-
+      <DataProvider>
+        <SongProvider>
+          <AudioRefProvider>
             <PlayerProvider>
-
-              <App />
-
+              <UserProvider>
+                <App />
+              </UserProvider>
             </PlayerProvider>
-
-          </SongProvider>
-
-        </AudioRefProvider>
-
-      </SongQueueProvider>
-
-
-
-
-
-
+          </AudioRefProvider>
+        </SongProvider>
+      </DataProvider>
     </BrowserRouter>
   </React.StrictMode>,
 );

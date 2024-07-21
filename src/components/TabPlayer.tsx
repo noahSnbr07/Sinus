@@ -13,27 +13,27 @@ export default function TabPlayer(): JSX.Element {
 
    return (
       <div className='w-full bg-stack-light rounded-xl p-2 flex gap-2 justify-between'>
-         <Link to={`/Player/${song.id}`} className="flex gap-2">
+         <Link to={`/player/${song && song.id}`} className="flex gap-2">
             <img
-               src={song.cover}
-               alt={`Cover of ${song.name}`}
+               src={(song && song.cover) && song.cover}
+               alt={`Cover of ${(song && song.name) && song.name}`}
                loading="lazy"
                draggable={false}
                className="h-14 rounded-md"
             />
             <div className="flex flex-col flex-1 justify-center items-start text-white">
-               <p className="text-lg text-accent truncate w-36">{song.name}</p>
-               <p className="italic text-sm">{song.artist}</p>
+               <p className="text-lg text-accent truncate w-36">{(song && song.name) && song.name}</p>
+               <p className="italic text-sm">{(song && song.artist) && song.artist}</p>
             </div>
          </Link>
          <div className="flex gap-2">
-            <button>
+            <button onClick={(player.skipPrev)}>
                <img src={prev} alt="Previous" />
             </button>
             <button onClick={togglePlayer}>
                <img src={togglePlayerIconState} alt="Toggle" />
             </button>
-            <button>
+            <button onClick={(player.skipNext)}>
                <img src={next} alt="Next" />
             </button>
          </div>

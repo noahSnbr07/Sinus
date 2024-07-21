@@ -1,6 +1,6 @@
 import { CSSProperties, ReactNode } from 'react';
 type PageProps = {
-   children: ReactNode;
+   children?: ReactNode;
    className?: string;
    style?: CSSProperties;
    scrollY?: boolean;

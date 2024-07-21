@@ -20,7 +20,7 @@ export default function MiniPlayer() {
 
    return (
       <div className='px-5 py-2 gap-5 absolute bottom-20 text-white w-full flex justify-between items-center'>
-         <Link to={`Player/${song.id}`} className="flex gap-2 items-center">
+         <Link to={`player/${song.id}`} className="flex gap-2 items-center">
             <img
                className="h-10 rounded-lg"
                src={song.cover}

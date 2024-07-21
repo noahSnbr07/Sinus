@@ -34,6 +34,6 @@
    "background_color": "#050505",
    "display": "standalone",
    "scope": "/",
-   "theme_color": "#101010",
+   "theme_color": "#050505",
    "description": "The Community based Streaming Service"
 }

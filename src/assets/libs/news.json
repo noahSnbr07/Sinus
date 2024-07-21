@@ -1,56 +1,29 @@
 [
    {
-      "title": "App Launch",
-      "body": "Sinus ist nun auf allen Browsern vertreten und unterstützt",
+      "title": "Integrate Your Songs",
+      "body": "Sinus ist nun darauf ausgelegt, deine Audio Uploads zu speichern",
       "isExpanded": false,
       "publisher": {
          "name": "Noah",
-         "date": "28.06.2024 - 16:00 Uhr"
+         "date": "06.07.2024 - 16:00 Uhr"
       }
    },
    {
-      "title": "Backend Setup",
-      "body": "Sinus verfügt nun über eine Cloudstorage, sowie einer SQL-Datenbank",
+      "title": "Partialieller Session Support",
+      "body": "Sinus kann nun den aktuellen Track in deinen Benachrichtigungen anzeigen",
       "isExpanded": false,
       "publisher": {
          "name": "Noah",
-         "date": "29.06.2024 - 21:00 Uhr"
+         "date": "07.07.2024 - 08:00 Uhr"
       }
    },
    {
-      "title": "Library Page",
-      "body": "Sinus kann nun Backenddaten abrufen, und diese darstellen",
+      "title": "Das Tagging ist da",
+      "body": "Füge deinen Songs Tags hinzu",
       "isExpanded": false,
       "publisher": {
          "name": "Noah",
-         "date": "30.06.2024 - 15:00 Uhr"
-      }
-   },
-   {
-      "title": "Player Page",
-      "body": "Sinus ist nun fähig, ausgewählte Songs abzuspielen",
-      "isExpanded": false,
-      "publisher": {
-         "name": "Noah",
-         "date": "30.06.2024 - 15:00 Uhr"
-      }
-   },
-   {
-      "title": "Minor Maintainace Update",
-      "body": "Performanceverbesserungen und Bugfixes",
-      "isExpanded": false,
-      "publisher": {
-         "name": "Noah",
-         "date": "04.07.2024 - 15:00 Uhr"
-      }
-   },
-   {
-      "title": "Neue Homepage",
-      "body": "News und Serverstatistiken einsehen",
-      "isExpanded": false,
-      "publisher": {
-         "name": "Noah",
-         "date": "04.07.2024 - 15:00 Uhr"
+         "date": "18.07.2024 - 21:54 Uhr"
       }
    }
 ]

@@ -36,7 +36,7 @@ export default function NewsArticle({ title, body, isExpanded, publisher }: News
             <p className='text-xl'> {title} </p>
          </button>
          {shown && (
-            <div className='flex flex-col gap-2 px-7'>
+            <div className='flex flex-col gap-2 px-8'>
                <article className='text-white text-lg'>
                   {body}
                </article>

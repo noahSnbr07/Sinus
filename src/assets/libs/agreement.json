@@ -1,0 +1,18 @@
+{
+   "en": {
+      "header": "User Agreement",
+      "rules": [
+         "I Will not publish any illegal content.",
+         "I understand and accept my relevant user data to be saved for legal purposes",
+         "I will carry full responibility for any kind of illegal activity caused by any of my uploads"
+      ]
+   },
+   "de": {
+      "header": "Nutzervereinbarung",
+      "rules": [
+         "Ich werde keine illegalen Inhalte veröffentlichen.",
+         "Ich bin damit einverstanden, dass meine relevanten Nutzerdaten für gesetzliche Zwecke gespeichert werden.",
+         "Ich trage die volle Verantwortung für jegliche Art von illegalen Aktivitäten, die durch meine Uploads verursacht werden."
+      ]
+   }
+}

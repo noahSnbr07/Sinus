@@ -1,10 +1,102 @@
 [
    {
-      "name": "Trap",
+      "id": 0,
+      "label": "80s / 90s",
+      "color": "yellow"
+   },
+   {
+      "id": 1,
+      "label": "Rock",
+      "color": "blue"
+   },
+   {
+      "id": 2,
+      "label": "Pop",
+      "color": "red"
+   },
+   {
+      "id": 3,
+      "label": "Jazz",
+      "color": "green"
+   },
+   {
+      "id": 4,
+      "label": "Classical",
+      "color": "purple"
+   },
+   {
+      "id": 5,
+      "label": "Hip-Hop",
       "color": "orange"
    },
    {
-      "name": "Cloud Rap",
-      "color": "purple"
+      "id": 6,
+      "label": "Electronic",
+      "color": "pink"
+   },
+   {
+      "id": 9,
+      "label": "Blues",
+      "color": "navy"
+   },
+   {
+      "id": 10,
+      "label": "Punk",
+      "color": "lime"
+   },
+   {
+      "id": 11,
+      "label": "Metal",
+      "color": "silver"
+   },
+   {
+      "id": 12,
+      "label": "Trap",
+      "color": "gold"
+   },
+   {
+      "id": 13,
+      "label": "Rap",
+      "color": "teal"
+   },
+   {
+      "id": 14,
+      "label": "Cloud Rap",
+      "color": "magenta"
+   },
+   {
+      "id": 15,
+      "label": "Hardcore",
+      "color": "crimson"
+   },
+   {
+      "id": 16,
+      "label": "Trance",
+      "color": "skyblue"
+   },
+   {
+      "id": 17,
+      "label": "Hardstyle",
+      "color": "lavender"
+   },
+   {
+      "id": 18,
+      "label": "Techno",
+      "color": "charcoal"
+   },
+   {
+      "id": 19,
+      "label": "Tekk",
+      "color": "olive"
+   },
+   {
+      "id": 20,
+      "label": "Gabber",
+      "color": "coral"
+   },
+   {
+      "id": 21,
+      "label": "Acid",
+      "color": "maroon"
    }
 ]

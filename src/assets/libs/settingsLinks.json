@@ -1,0 +1,14 @@
+[
+   {
+      "id": 0,
+      "label": "account"
+   },
+   {
+      "id": 1,
+      "label": "preferences"
+   },
+   {
+      "id": 2,
+      "label": "membership"
+   }
+]

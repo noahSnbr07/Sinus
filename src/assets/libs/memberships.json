@@ -1,0 +1,54 @@
+[
+   {
+      "id": 0,
+      "name": "Basic",
+      "description": "essential feature support, considered as demo-version, ... ",
+      "canUseProgressBar": false,
+      "canPublishContent": false,
+      "canDownloadSongs": false,
+      "canPlayExplicitSongs": false,
+      "canCustomizePreferences": false,
+      "canModifyDatabase": false,
+      "accent": "#40BF4A",
+      "adFree": false
+   },
+   {
+      "id": 1,
+      "name": "Premium",
+      "description": "Most features supported, more control, ...",
+      "canUseProgressBar": true,
+      "canPublishContent": false,
+      "canDownloadSongs": false,
+      "canPlayExplicitSongs": true,
+      "canCustomizePreferences": true,
+      "canModifyDatabase": false,
+      "accent": "#BFAA40",
+      "adFree": true
+   },
+   {
+      "id": 2,
+      "name": "Creator",
+      "description": "access creator-only features such as publishing content",
+      "canUseProgressBar": true,
+      "canPublishContent": true,
+      "canDownloadSongs": true,
+      "canPlayExplicitSongs": true,
+      "canCustomizePreferences": true,
+      "canModifyDatabase": false,
+      "accent": "#BF40BF",
+      "adFree": true
+   },
+   {
+      "id": 3,
+      "name": "Moderator",
+      "description": "Special Membership to access the database, modify data, etc",
+      "canUseProgressBar": true,
+      "canPublishContent": true,
+      "canDownloadSongs": true,
+      "canPlayExplicitSongs": true,
+      "canCustomizePreferences": true,
+      "canModifyDatabase": true,
+      "accent": "#BF4040",
+      "adFree": true
+   }
+]

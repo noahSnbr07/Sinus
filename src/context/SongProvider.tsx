@@ -1,4 +1,4 @@
-import React, { createContext, useState, ReactNode, Dispatch, SetStateAction, useEffect } from 'react';
+import React, { createContext, useState, ReactNode, Dispatch, SetStateAction } from 'react';
 import { SongProps } from '../interfaces/interfaces';
 
 //define the context interface
@@ -12,15 +12,33 @@ export const SongContext = createContext<SongContextType | undefined>(undefined)
 
 //holds the default value
 const initialValue: SongProps = {
-   id: 1,
-   name: "Dalai Lama",
-   artist: "Rammstein",
-   cover: "https://cdns-images.dzcdn.net/images/cover/633b009c486f17d1aef7fef6b1151201/350x350.jpg",
-   audio: "https://firebasestorage.googleapis.com/v0/b/sinus-app.appspot.com/o/audio%2F1.mp3?alt=media&token=e80ea39a-f7d0-4219-b17e-622d8e37ec17",
-   length: 358,
-   isExplicit: false,
-   release: "2022"
-};
+   artist: "Lil Peep",
+   audio: "https://firebasestorage.googleapis.com/v0/b/sinus-app.appspot.com/o/audio%2F0.mp3?alt=media&token=42091c5a-772b-42e1-95ba-716901abcd34",
+   cover: "https://i.scdn.co/image/ab67616d0000b273eb998de81063e6f2e2c4c2bd",
+   id: 0,
+   isExplicit: true,
+   length: 232,
+   name: "Save That Shit",
+   publisher: "User #2345",
+   release: "04.06:2024 - 16:29",
+   tags: [
+      {
+         "color": "magenta",
+         "id": 14,
+         "label": "Cloud Rap"
+      },
+      {
+         "color": "lime",
+         "id": 10,
+         "label": "Punk"
+      },
+      {
+         "color": "gold",
+         "id": 12,
+         "label": "Trap"
+      }
+   ]
+}
 
 // Create a provider component
 export const SongProvider: React.FC<{ children: ReactNode }> = ({ children }) => {

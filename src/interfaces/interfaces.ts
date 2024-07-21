@@ -1,3 +1,9 @@
+export interface TagProps {
+   id: number;
+   color: string;
+   label: string;
+}
+
 export interface SongProps {
    id: number;
    name: string;
@@ -7,6 +13,8 @@ export interface SongProps {
    length: number;
    isExplicit: boolean;
    release: string;
+   publisher: string;
+   tags: TagProps[];
 }
 
 export interface PlayerProps {
@@ -15,6 +23,10 @@ export interface PlayerProps {
    isLooping: boolean;
    isShuffling: boolean;
    togglePlayer: () => void;
+   play: () => void;
+   pause: () => void;
+   skipPrev: () => void;
+   skipNext: () => void;
 }
 
 interface NewsArticlePublisher {
@@ -29,7 +41,31 @@ export interface NewsArticleProps {
    publisher: NewsArticlePublisher;
 }
 
-export interface TagProps {
-   color: string;
+
+export interface SettingsLinkProps {
+   id: number;
    label: string;
+}
+
+export interface UserProps {
+   id: number;
+   name: string;
+   password: string;
+   image: string;
+   gender: string;
+   membership: string;
+}
+
+export interface MembershipProps {
+   id: number;
+   name: string;
+   description: string;
+   canUseProgressBar: boolean;
+   canPublishContent: boolean;
+   canDownloadSongs: boolean;
+   canPlayExplicitSongs: boolean;
+   canCustomizePreferences: boolean;
+   canModifyDatabase: boolean;
+   accent: string;
+   adFree: boolean;
 }

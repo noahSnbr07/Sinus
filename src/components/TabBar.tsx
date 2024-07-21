@@ -1,5 +1,5 @@
 import { Link, useMatch, useResolvedPath, } from "react-router-dom";
-import { home, library, player, upload } from "../images";
+import { home, library, player, settings, upload } from "../images";
 import { useSong } from "../hooks/useSong";
 
 export default function TabBar() {
@@ -26,10 +26,11 @@ export default function TabBar() {
    }
 
    const tabBarLinks: TabBarLinkProps[] = [
-      { destination: "Home", label: "Home", icon: home },
-      { destination: "Library", label: "Library", icon: library },
-      { destination: `Player/${song.id}`, label: "Player", icon: player },
-      { destination: "Upload", label: "Upload", icon: upload },
+      { destination: "/", label: "Home", icon: home },
+      { destination: "library", label: "Library", icon: library },
+      { destination: `/player/${(song && song.id) && song.id}`, label: "Player", icon: player },
+      { destination: "/upload", label: "Upload", icon: upload },
+      { destination: "/settings", label: "Settings", icon: settings },
    ];
 
    return (
