@@ -8,27 +8,24 @@ export default function VolumeManager() {
    // Initialize volume with the current volume of the reference or a default value
    const [volume, setVolume] = useState<number>(reference?.current?.volume ?? .25);
 
+   //update the reference with the new volume
    useEffect(() => {
       if (reference && reference.current) {
-         reference.current.volume = volume || 0.5;
+         reference.current.volume = volume || 0;
       }
    }, [volume, reference]);
 
-   const changeVolume = (e: ChangeEvent<HTMLInputElement>) => {
-      const newValue = Number(e.target.value);
-      setVolume(newValue);
-   };
+   //change the volume of the audio
+   const changeVolume = (e: ChangeEvent<HTMLInputElement>) => setVolume(Number(e.target.value));
 
-   const volumeIcon = (): string => {
-      return volume < .1 ? volume_mute : volume >= .5 ? volume_high : volume_low;
-   }
+   //set the correct volume icon
+   const volumeIcon = (): string => volume < .01 ? volume_mute : volume >= .5 ? volume_high : volume_low;
 
-   const displayVolumeNumber = (): string => {
-      return (volume * 100).toFixed(0)
-   }
+   //display the volume value
+   const displayVolumeNumber = (): string => (volume * 100).toFixed(0)
 
    return (
-      <div className="bg-stack-light p-2 flex gap-2 rounded-xl items-center">
+      <div className="bg-light-1 p-2 flex gap-2 rounded-xl items-center">
          <img
             src={volumeIcon()}
             title="volume icon"
@@ -42,10 +39,10 @@ export default function VolumeManager() {
             max={1}
             step={0.01}
             value={volume}
-            className="flex-1 appearance-none bg-stack-light rounded-full h-3 accent-white"
+            className="flex-1 appearance-none bg-light-2 rounded-full h-3 accent-white"
             onChange={changeVolume}
          />
-         <span className="w-5 text-stack-neutral"> {displayVolumeNumber()} </span>
+         <span className="w-5 text-white"> {displayVolumeNumber()} </span>
       </div>
    );
 }

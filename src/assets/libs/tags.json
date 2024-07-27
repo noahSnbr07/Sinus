@@ -98,5 +98,25 @@
       "id": 21,
       "label": "Acid",
       "color": "maroon"
+   },
+   {
+      "id": 22,
+      "label": "Uptempo",
+      "color": "cyan"
+   },
+   {
+      "id": 23,
+      "label": "Death Metal",
+      "color": "orangered"
+   },
+   {
+      "id": 24,
+      "label": "Emo",
+      "color": "purple"
+   },
+   {
+      "id": 25,
+      "label": "Hard Tekk",
+      "color": "rose"
    }
 ]

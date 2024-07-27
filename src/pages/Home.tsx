@@ -1,41 +1,26 @@
 import Page from '../components/Page';
-import newsJSON from '../assets/libs/news.json';
-import { useState } from 'react';
-import { NewsArticleProps } from '../interfaces/interfaces';
-import NewsArticle from '../components/NewsArticle';
 import BackendStats from '../components/BackendStats';
 import TabPlayer from '../components/TabPlayer';
 import LatestSong from '../components/LatestSong';
 import LibraryRoutes from '../components/LibraryRoutes';
 import VolumeManager from '../components/VolumeManager';
+import SuggestedSongs from '../components/SuggestedSongs';
+import News from '../components/News';
+import DeviceStatus from '../components/DeviceStatus';
+import Finder from '../components/Finder';
 
 export default function Home() {
-   const [news] = useState<NewsArticleProps[]>([...newsJSON]);
-
-   const NewsContainer = () => {
-      return (
-         <div className='w-full flex flex-col gap-2'>
-            {news.map((article: NewsArticleProps, index: number) => (
-               <NewsArticle
-                  key={index}
-                  publisher={article.publisher}
-                  title={article.title}
-                  body={article.body}
-                  isExpanded={article.isExpanded}
-               />
-            ))}
-         </div>
-      );
-   }
-
    return (
       <Page className='p-5 flex flex-col gap-5' scrollY>
          <TabPlayer />
          <LibraryRoutes />
          <VolumeManager />
-         <BackendStats />
+         <Finder />
          <LatestSong />
-         <NewsContainer />
+         <SuggestedSongs />
+         <DeviceStatus />
+         <BackendStats />
+         <News />
       </Page>
    );
 }

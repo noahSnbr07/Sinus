@@ -1,4 +1,4 @@
-import { createContext, useState, ReactNode, Dispatch, SetStateAction, RefObject } from 'react';
+import { createContext, useState, ReactNode, Dispatch, SetStateAction, RefObject, useEffect } from 'react';
 import { useSong } from '../hooks/useSong';
 import { useData } from '../hooks/useData';
 
@@ -34,7 +34,7 @@ export const AudioRefProvider: React.FC<AudioRefProviderProps> = ({ children }) 
       }
    };
 
-   handleAudioPlayback();
+   useEffect(() => { handleAudioPlayback(); }, [song]);
 
    return (
       <AudioRefContext.Provider value={{ reference, setReference }}>

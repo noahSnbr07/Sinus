@@ -15,6 +15,7 @@ export interface SongProps {
    release: string;
    publisher: string;
    tags: TagProps[];
+   highlight: number;
 }
 
 export interface PlayerProps {
@@ -52,7 +53,6 @@ export interface UserProps {
    name: string;
    password: string;
    image: string;
-   gender: string;
    membership: string;
 }
 
@@ -68,4 +68,20 @@ export interface MembershipProps {
    canModifyDatabase: boolean;
    accent: string;
    adFree: boolean;
+}
+
+export interface PlaylistProps {
+   id: number;
+   name: string;
+   cover: string;
+   isPublic: boolean;
+   songs: number[];
+   publication: string;
+}
+
+export interface ArtistProps {
+   id: number;
+   name: string;
+   isVerified: boolean;
+   image: string;
 }

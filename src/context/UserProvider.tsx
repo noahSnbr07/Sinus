@@ -12,7 +12,6 @@ const initialValue: UserProps = {
    id: 0,
    name: "Default User",
    password: "password",
-   gender: "male",
    membership: "Basic",
    image: ""
 }

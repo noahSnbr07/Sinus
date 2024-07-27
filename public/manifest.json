@@ -31,9 +31,9 @@
    "id": "/?source=pwa",
    "orientation": "portrait",
    "start_url": "/?source=pwa",
-   "background_color": "#050505",
+   "background_color": "#000000",
    "display": "standalone",
    "scope": "/",
-   "theme_color": "#050505",
+   "theme_color": "#191919",
    "description": "The Community based Streaming Service"
 }

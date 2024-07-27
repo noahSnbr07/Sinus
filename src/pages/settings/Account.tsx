@@ -1,6 +1,6 @@
 import Page from '../../components/Page'
 import { useUser } from '../../hooks/useUser';
-import { female, male, placeholder } from '../../images';
+import { placeholder } from '../../images';
 
 export default function Account() {
    const { user } = useUser();
@@ -11,14 +11,10 @@ export default function Account() {
             <img src={placeholder} alt='users image' loading='lazy' className='h-40' draggable={false} />
          </div>
          <div className='flex flex-col gap-2'>
-            <input type='text' placeholder={user.name} className='bg-stack-light p-2 text-white rounded-xl' />
-            <input type='password' placeholder={user.password} className='bg-stack-light p-2 text-white rounded-xl' />
+            <input type='text' placeholder={user.name} className='bg-light-1 p-2 text-white rounded-xl' />
+            <input type='password' placeholder={user.password} className='bg-light-1 p-2 text-white rounded-xl' />
          </div>
          <div className='flex flex-col gap-2 text-white items-center'>
-            <span className='flex gap-5'>
-               <i className='text-stack-neutral'> {"gender:"} </i>
-               <img src={user.gender === 'male' ? male : female} />
-            </span>
             <span className='flex gap-5'>
                <i className='text-stack-neutral'> {"membership:"} </i>
                <p> {user.membership} </p>

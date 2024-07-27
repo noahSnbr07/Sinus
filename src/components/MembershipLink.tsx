@@ -3,7 +3,7 @@ import { MembershipProps } from "../interfaces/interfaces";
 
 export default function MembershipLink({ id, name, accent, description }: MembershipProps) {
    return (
-      <article className="w-full bg-stack-light flex flex-col p-5 gap-10 rounded-xl border-stack-light">
+      <article className="w-full bg-light-1 flex flex-col p-5 gap-10 rounded-xl border-stack-light">
          <div>
             <h2 className="text-2xl" style={{ color: accent }}> {name} </h2>
             <p> {description} </p>

@@ -10,5 +10,9 @@
    {
       "id": 2,
       "label": "membership"
+   },
+   {
+      "id": 3,
+      "label": "upload"
    }
 ]

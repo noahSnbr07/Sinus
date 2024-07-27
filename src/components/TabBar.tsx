@@ -1,5 +1,5 @@
 import { Link, useMatch, useResolvedPath, } from "react-router-dom";
-import { home, library, player, settings, upload } from "../images";
+import { equalizer, home, player, settings } from "../images";
 import { useSong } from "../hooks/useSong";
 
 export default function TabBar() {
@@ -19,7 +19,7 @@ export default function TabBar() {
             <Link className="flex flex-col items-center justify-center"
                to={destination}>
                <img src={icon} alt={`link to ${label}`} loading="lazy" draggable={false} />
-               <p> {label} </p>
+               <p className={`${isMatch ? 'text-white' : 'text-stack'}`}> {label} </p>
             </Link>
          </button>
       );
@@ -27,14 +27,13 @@ export default function TabBar() {
 
    const tabBarLinks: TabBarLinkProps[] = [
       { destination: "/", label: "Home", icon: home },
-      { destination: "library", label: "Library", icon: library },
       { destination: `/player/${(song && song.id) && song.id}`, label: "Player", icon: player },
-      { destination: "/upload", label: "Upload", icon: upload },
+      { destination: `/slices`, label: "Slices", icon: equalizer },
       { destination: "/settings", label: "Settings", icon: settings },
    ];
 
    return (
-      <div className="w-full h-20 bg-stack-light text-stack-neutral p-2 flex">
+      <div className="w-full h-20 bg-light-1 text-stack-neutral p-2 flex">
          {tabBarLinks.map((link: TabBarLinkProps, index: number) => <TabBarLink
             key={index}
             destination={link.destination}

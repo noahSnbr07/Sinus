@@ -9,7 +9,7 @@ export default function UserAgreement() {
 
    const LanguageToggler = (): JSX.Element => {
       return (
-         <button onClick={() => void setLangIsEn(prev => !prev)} className='rounded-xl bg-stack-light p-5 text-white text-xl'>
+         <button onClick={() => void setLangIsEn(prev => !prev)} className='rounded-xl bg-light-1 p-5 text-white text-xl'>
             {!langIsEn ? 'Switch To german' : 'Wechsle auf English'}
          </button>
       )
@@ -23,7 +23,7 @@ export default function UserAgreement() {
                agreement.en.rules.map((rule: string, index: number) => <li key={index}> {rule} </li>)}
          </ol>
          <LanguageToggler />
-         <Link to={"/"} className='bg-stack-light text-center p-5 rounded-xl'> {"Home"} </Link>
+         <Link to={"/"} className='bg-light-1 text-center p-5 rounded-xl'> {"Home"} </Link>
       </Page>
    );
 }

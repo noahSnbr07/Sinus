@@ -15,6 +15,7 @@ const initialValue: SongProps = {
    artist: "Lil Peep",
    audio: "https://firebasestorage.googleapis.com/v0/b/sinus-app.appspot.com/o/audio%2F0.mp3?alt=media&token=42091c5a-772b-42e1-95ba-716901abcd34",
    cover: "https://i.scdn.co/image/ab67616d0000b273eb998de81063e6f2e2c4c2bd",
+   highlight: 149,
    id: 0,
    isExplicit: true,
    length: 232,

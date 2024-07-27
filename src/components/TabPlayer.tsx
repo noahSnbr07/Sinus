@@ -12,7 +12,7 @@ export default function TabPlayer(): JSX.Element {
    const togglePlayer = () => player.togglePlayer();
 
    return (
-      <div className='w-full bg-stack-light rounded-xl p-2 flex gap-2 justify-between'>
+      <div className='w-full bg-light-1 rounded-xl p-2 flex gap-2 justify-between'>
          <Link to={`/player/${song && song.id}`} className="flex gap-2">
             <img
                src={(song && song.cover) && song.cover}
@@ -22,7 +22,7 @@ export default function TabPlayer(): JSX.Element {
                className="h-14 rounded-md"
             />
             <div className="flex flex-col flex-1 justify-center items-start text-white">
-               <p className="text-lg text-accent truncate w-36">{(song && song.name) && song.name}</p>
+               <p className="text-lg text-accent">{(song && song.name) && song.name}</p>
                <p className="italic text-sm">{(song && song.artist) && song.artist}</p>
             </div>
          </Link>

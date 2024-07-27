@@ -6,10 +6,10 @@ export default {
   ],
   theme: {
     colors: {
-      "stack-light": "rgba(255, 255, 255, 0.075)",
-      "stack-neutral": "rgba(127, 127, 127, 0.5)",
-      "accent": "rgb(0, 185, 0)",
-      "background": "#101010",
+      "light-1": "rgba(25, 25, 25, 1)",
+      "light-2": "rgba(35, 35, 35, 1)",
+      "stack": "rgba(255, 255, 255, 0.25)",
+      "accent": "rgb(0, 150, 0)",
       "white": "#ffffff",
       "black": "#000000",
     }

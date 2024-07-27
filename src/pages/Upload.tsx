@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useRef, useState } from 'react';
 import Page from '../components/Page';
 import { SongProps, TagProps } from '../interfaces/interfaces';
 import { ref, getStorage, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
@@ -9,11 +9,13 @@ import getAudioDuration from '../functions/getAudioDuration';
 import { Link } from 'react-router-dom';
 import { useData } from '../hooks/useData';
 import tagsJSON from '../assets/libs/tags.json';
+import { secondsToTimeString } from '../functions/timeConverter';
 
 export default function Upload() {
    const { data } = useData();
    const [tags] = useState<TagProps[]>([...tagsJSON]);
    const [activeTags, setActiveTags] = useState<TagProps[]>([]);
+   const audioRef = useRef<HTMLAudioElement>(null);
 
    const currentTime: string = getCurrentTime();
 
@@ -24,6 +26,7 @@ export default function Upload() {
       name: "",
       artist: "",
       cover: "",
+      highlight: 0,
       audio: "",
       length: 0,
       isExplicit: false,
@@ -34,8 +37,6 @@ export default function Upload() {
 
    const [newSong, setNewSong] = useState<SongProps>(initialNewSong);
 
-   useEffect(() => console.table(newSong), [newSong]);
-
    const storage = getStorage(app);
    const database = getDatabase(app);
 
@@ -45,8 +46,8 @@ export default function Upload() {
       async function processAudioFile(audioFile: File): Promise<void> {
          try {
             const duration = await getAudioDuration(audioFile);
-            if (duration >= 300) {
-               alert("File too large, cap at: 300 seconds");
+            if (duration >= 600) {
+               alert("File too large, cap at: 600 seconds");
                return;
             }
             else setNewSong((prev) => ({ ...prev, length: duration }));
@@ -88,10 +89,11 @@ export default function Upload() {
    }
 
    function upload(): void {
-      if (newSong.name.length < 5 || newSong.artist.length < 5 || newSong.audio.length < 1 || activeTags.length <= 0) {
-         alert("All Fields must contain a value");
-         return;
-      }
+
+      if (newSong.name.length < 1) { alert(`song name (${newSong.name.length}) Characters to short`); return; }
+      if (newSong.artist.length < 1) { alert(`song artist name (${newSong.artist.length}) Characters to short`); return; }
+      if (newSong.audio.length < 1) { alert(`song name (${newSong.audio.length}) Characters to short`); return; }
+      if (activeTags.length < 1) { alert(`select at least one tag`); return; }
 
       if (!termsAgreed) {
          alert("Must Agree with terms of service in order to publish");
@@ -135,19 +137,29 @@ export default function Upload() {
          <button
             style={{ border: `${isActive ? '1px solid white' : '1px solid transparent'}`, color: `${isActive ? 'white' : 'rgba(127, 127, 127, 0.5'}` }}
             onClick={handleTagClick}
-            className='bg-stack-light p-2 text-sm rounded-full'>
+            className='bg-light-1 p-2 text-sm rounded-full'>
             {label}
          </button>
       );
    }
 
+   const handleHighlightChange = (e: ChangeEvent<HTMLInputElement>): void => {
+      const newValue = e.target.value;
+      console.log(e.target.value);
+      setNewSong((prev: SongProps) => ({ ...prev, highlight: Number(newValue) }));
+      if (audioRef && audioRef.current) {
+         audioRef.current.currentTime = parseFloat(newValue);
+      }
+   }
+
    return (
-      <Page className='flex flex-col gap-5 p-5'>
+      <Page scrollY className='flex flex-col gap-5 p-5'>
+         <audio autoPlay ref={audioRef} src={newSong.audio && newSong.audio} />
          <div className='flex flex-col gap-2'>
             <p className='text-white italic'>Naming</p>
             <input
                placeholder={`New Song's Name`}
-               className='bg-stack-light p-2 text-white rounded-lg'
+               className='bg-light-1 p-2 text-white rounded-lg'
                type="text"
                value={newSong.name}
                onChange={(e: ChangeEvent<HTMLInputElement>) => setNewSong((prev) => ({ ...prev, name: e.target.value }))}
@@ -155,7 +167,7 @@ export default function Upload() {
 
             <input
                placeholder={`New Song's Artist`}
-               className='bg-stack-light p-2 text-white rounded-lg'
+               className='bg-light-1 p-2 text-white rounded-lg'
                type="text"
                value={newSong.artist}
                onChange={(e: ChangeEvent<HTMLInputElement>) => setNewSong((prev) => ({ ...prev, artist: e.target.value }))}
@@ -165,21 +177,36 @@ export default function Upload() {
             <p className='text-white italic'>Representation</p>
             <input
                placeholder={`New Cover Image URL`}
-               className='bg-stack-light p-2 text-white rounded-lg'
+               className='bg-light-1 p-2 text-white rounded-lg'
                type="url"
                value={newSong.cover}
                onChange={(e: ChangeEvent<HTMLInputElement>) => setNewSong((prev) => ({ ...prev, cover: e.target.value }))}
             />
             <input
                placeholder={`New Cover Audio File`}
-               className='bg-stack-light p-2 text-white rounded-lg file:appearance-none'
+               className='bg-light-1 p-2 text-white rounded-lg file:appearance-none'
                type="file"
                accept='audio/mp3'
                onChange={(e: ChangeEvent<HTMLInputElement>) => updateAudioFile(e)}
             />
          </div>
-         <div className='bg-stack-light p-2 flex flex-wrap gap-2 rounded-xl'>
+         <div className='bg-light-1 p-2 flex flex-wrap gap-2 rounded-xl'>
             {tags.map((tag: TagProps, key: number) => <Tag key={key} id={tag.id} label={tag.label} color={tag.color} />)}
+         </div>
+         <div>
+            <i className='text-white'>
+               {"Select Song Highlight"}
+            </i>
+            <div className='flex gap-5'>
+               <input
+                  className='flex-1'
+                  type='range'
+                  min={0}
+                  max={newSong.length && newSong.length}
+                  value={newSong.highlight}
+                  onChange={(e) => handleHighlightChange(e)} />
+               <span className='text-white'> {secondsToTimeString(newSong.highlight)} </span>
+            </div>
          </div>
          <div className='flex flex-col gap-2'>
             <span className='flex gap-2'>

@@ -17,8 +17,8 @@ export default function Player() {
    // custom hooks for context values
    const { song, setSong } = useSong();
    const { player, setPlayer } = usePlayer();
-   const { data /* setSongQueue */ } = useData();
    const { setReference } = useAudioRef();
+   const { data } = useData();
 
    const storage: FirebaseStorage = getStorage(app);
    const [/* fileUrl */, setFileUrl] = useState<string>('');
@@ -31,7 +31,7 @@ export default function Player() {
                const storageRefPath = storageRef(storage, `/audio/${songIndex}.mp3`);
                const url = await getDownloadURL(storageRefPath);
                setFileUrl(url);
-               setSong(data.songs[parseInt(songIndex)]);
+               setSong(data.songs![parseInt(songIndex)]);
             } catch (error: unknown) {
                if (error instanceof Error) {
                   console.error('Error fetching file:', error.message);
@@ -43,7 +43,7 @@ export default function Player() {
       };
 
       fetchFile();
-   }, [songIndex, setSong, setFileUrl, data, storage]);
+   }, [songIndex, setSong, setFileUrl, data.songs, storage]);
 
    const Controls = () => {
 
@@ -62,8 +62,8 @@ export default function Player() {
 
       const NameAndArtist = () => (
          <div className='flex flex-col'>
-            <b className='text-xl truncate w-72'> {song && song.name} </b>
-            <p className='italic text-stack-neutral'> {song && song.artist} </p>
+            <b className='text-2xl'> {song && song.name} </b>
+            <p className='italic text-white'> {song && song.artist} </p>
          </div>
       );
 
@@ -75,7 +75,7 @@ export default function Player() {
                min={0}
                max={song && song.length}
                value={player.progress}
-               className='flex-1 appearance-none bg-stack-light rounded-full accent-white h-2'
+               className='flex-1 appearance-none bg-stack rounded-full accent-white h-2'
                onChange={(e) => { updateProgress(e) }}
             />
             <span> {secondsToTimeString(song && song.length, false)} </span>
@@ -127,9 +127,9 @@ export default function Player() {
 
    return (
       <Page className='flex'>
-         <div className='backdrop-blur-xl flex flex-1'>
+         <div className='backdrop-blur-3xl flex flex-1'>
             <img src={song && song.cover} className='absolute top-0 left-0 w-screen object-cover h-full' />
-            <div className='backdrop-blur-lg backdrop-brightness-50 flex-1 flex justify-between flex-col back'>
+            <div className='backdrop-blur-3xl backdrop-brightness-50 flex-1 flex justify-between flex-col back'>
                <Cover />
                <Controls />
             </div>

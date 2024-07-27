@@ -27,10 +27,20 @@ import check from './assets/svg/check.svg';
 import close from './assets/svg/close.svg';
 import male from './assets/svg/male.svg';
 import female from './assets/svg/female.svg';
-
 import volume_mute from './assets/svg/volume_mute.svg';
 import volume_low from './assets/svg/volume_low.svg';
 import volume_high from './assets/svg/volume_high.svg';
+import equalizer from './assets/svg/equalizer.svg';
+import shuffle from './assets/svg/shuffle.svg';
+import refresh from './assets/svg/refresh.svg';
+import verified from './assets/svg/verified.svg';
+import artist from './assets/svg/artist.svg';
+import battery from './assets/svg/battery.svg';
+import ios from './assets/svg/ios.svg';
+import android from './assets/svg/android.svg';
+import windows from './assets/svg/windows.svg';
+import language from './assets/svg/language.svg';
+import search from './assets/svg/search.svg';
 
 //tiers
 import basic from './assets/tiers/basic.png';
@@ -80,4 +90,15 @@ export {
    volume_mute,
    volume_low,
    volume_high,
+   equalizer,
+   shuffle,
+   refresh,
+   verified,
+   artist,
+   battery,
+   ios,
+   android,
+   windows,
+   language,
+   search,
 };

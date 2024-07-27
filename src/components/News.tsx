@@ -1,8 +1,24 @@
 import { useState } from 'react';
+import news from '../assets/libs/news.json';
+import { NewsArticleProps } from '../interfaces/interfaces';
 import { developer, expand, shrink } from '../images';
-import { NewsArticleProps } from '../interfaces/interfaces'
+export default function News() {
+   return (
+      <div className='w-full flex flex-col gap-2'>
+         {news.map((article: NewsArticleProps, index: number) => (
+            <NewsArticle
+               key={index}
+               publisher={article.publisher}
+               title={article.title}
+               body={article.body}
+               isExpanded={article.isExpanded}
+            />
+         ))}
+      </div>
+   );
+}
 
-export default function NewsArticle({ title, body, isExpanded, publisher }: NewsArticleProps): JSX.Element {
+function NewsArticle({ title, body, isExpanded, publisher }: NewsArticleProps): JSX.Element {
 
    const [shown, setShown] = useState<boolean>(isExpanded);
    const toggleArticle = () => setShown(prev => !prev);
@@ -18,13 +34,13 @@ export default function NewsArticle({ title, body, isExpanded, publisher }: News
             alt={`image of ${name}`}
             loading='lazy'
             draggable={false} />
-         <p className='text-lg text-stack-neutral'> {name} </p>
-         <i className='text-sm text-stack-neutral'> {date} </i>
+         <p className='text-lg text-white'> {name} </p>
+         <i className='text-sm text-white'> {date} </i>
       </div>
    );
 
    return (
-      <div className='w-full bg-stack-light p-2 rounded-xl flex flex-col overflow-y-scroll'>
+      <div className='w-full bg-light-1 p-2 rounded-xl flex flex-col overflow-y-scroll'>
          <button
             onClick={() => void toggleArticle()}
             className='flex gap-2 text-stack-neutral items-center'>
@@ -33,7 +49,7 @@ export default function NewsArticle({ title, body, isExpanded, publisher }: News
                loading='lazy'
                src={currentIcon}
                alt={`${isExpanded ? 'shrink' : 'expand'} button icon`} />
-            <p className='text-xl'> {title} </p>
+            <p className='text-xl text-white'> {title} </p>
          </button>
          {shown && (
             <div className='flex flex-col gap-2 px-8'>

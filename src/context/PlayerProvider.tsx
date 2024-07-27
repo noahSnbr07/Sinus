@@ -22,11 +22,11 @@ export const PlayerProvider: React.FC<{ children: ReactNode }> = ({ children }):
       isPlaying: false,
       isLooping: false,
       isShuffling: false,
-      togglePlayer: () => { },
-      play: () => { },
-      pause: () => { },
-      skipNext: () => { },
-      skipPrev: () => { },
+      togglePlayer: () => void {},
+      play: () => void {},
+      pause: () => void {},
+      skipNext: () => void {},
+      skipPrev: () => void {},
    };
 
    const [player, setPlayer] = useState<PlayerProps>(initialValue);
@@ -39,7 +39,7 @@ export const PlayerProvider: React.FC<{ children: ReactNode }> = ({ children }):
          artwork: [
             {
                src: song && song.cover,
-               sizes: "144x144",
+               sizes: "640x640",
                type: "image/png",
             },
          ],
