@@ -4,20 +4,28 @@ import { useData } from '../hooks/useData';
 import { PlaylistProps, SongProps } from '../interfaces/interfaces';
 import getTotalLength from '../functions/getTotalLength';
 import { play } from '../images';
-import SongLink from '../components/SongLink';
+import SongLink from '../components/links/SongLink';
 import { useSong } from '../hooks/useSong';
 import { useEffect, useState } from 'react';
 
 export default function Playlist() {
 
+   //get global context values
    const { data } = useData();
-   const { playlistIndex }: Readonly<Params<string>> = useParams();
-   const playlist: PlaylistProps = data.playlists[Number(playlistIndex)];
    const { setSong } = useSong();
 
+   //get the id by the url params
+   const { playlistIndex }: Readonly<Params<string>> = useParams();
+
+   //hold the playlist by extracting it from the array
+   const playlist: PlaylistProps = data.playlists[Number(playlistIndex)];
+
    const [songs, setSongs] = useState<SongProps[]>([]);
+
+   //calculate the total playlist duration with custom function
    const totalDuration: string = getTotalLength(songs);
 
+   //update the local songs array
    useEffect(() => {
       const newList: SongProps[] = playlist.songs.map((songId: number): SongProps => {
          return data.songs[songId];

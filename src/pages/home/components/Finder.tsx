@@ -1,8 +1,8 @@
 import { ChangeEvent, useState } from "react";
-import { useData } from "../hooks/useData";
-import { search } from "../images";
-import { SongProps } from "../interfaces/interfaces";
-import SongLink from "./SongLink";
+import { useData } from "../../../hooks/useData";
+import { search } from "../../../images";
+import { SongProps } from "../../../interfaces/interfaces";
+import SongLink from "../../../components/links/SongLink";
 
 export default function Finder() {
 
@@ -26,7 +26,7 @@ export default function Finder() {
       if (filteredSongs.length < 1) return fallback;
 
       return (
-         <div className="w-full px-8">
+         <div className="w-full pl-8">
             {filteredSongs.slice(0, 3).map((song: SongProps) => <SongLink songParam={song} key={song.id} />)}
          </div>
       )

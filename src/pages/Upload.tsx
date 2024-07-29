@@ -102,7 +102,6 @@ export default function Upload() {
 
       try {
          set(databaseRef(database, `/songs/${newSong.id}`), newSong);
-
          setNewSong(initialNewSong);
          setActiveTags([]);
 
@@ -190,22 +189,27 @@ export default function Upload() {
                onChange={(e: ChangeEvent<HTMLInputElement>) => updateAudioFile(e)}
             />
          </div>
-         <div className='bg-light-1 p-2 flex flex-wrap gap-2 rounded-xl'>
-            {tags.map((tag: TagProps, key: number) => <Tag key={key} id={tag.id} label={tag.label} color={tag.color} />)}
+         <div className='flex flex-col gap-2'>
+            <i className='text-white'> {"Tag Your Song"} </i>
+            <div className='bg-light-1 p-2 flex flex-wrap gap-2 rounded-xl'>
+               {tags.map((tag: TagProps, key: number) => <Tag key={key} id={tag.id} label={tag.label} color={tag.color} />)}
+            </div>
          </div>
-         <div>
+         <div className='flex flex-col gap-2'>
             <i className='text-white'>
                {"Select Song Highlight"}
             </i>
             <div className='flex gap-5'>
-               <input
-                  className='flex-1'
-                  type='range'
-                  min={0}
-                  max={newSong.length && newSong.length}
-                  value={newSong.highlight}
-                  onChange={(e) => handleHighlightChange(e)} />
-               <span className='text-white'> {secondsToTimeString(newSong.highlight)} </span>
+               <div className='flex gap-2 w-full items-center'>
+                  <input
+                     className='flex-1 accent-white appearance-none bg-stack rounded-full h-2'
+                     type='range'
+                     min={0}
+                     max={newSong.length && newSong.length}
+                     value={newSong.highlight}
+                     onChange={(e) => handleHighlightChange(e)} />
+                  <span className='text-white'> {secondsToTimeString(newSong.highlight)} </span>
+               </div>
             </div>
          </div>
          <div className='flex flex-col gap-2'>
@@ -232,7 +236,7 @@ export default function Upload() {
             </span>
          </div>
          <button onClick={upload} className='bg-accent text-white p-5 rounded-xl text-xl'>
-            Publish to Sinus
+            {" Publish to Sinus"}
          </button>
       </Page>
    );

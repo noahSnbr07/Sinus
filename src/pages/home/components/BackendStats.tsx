@@ -1,6 +1,6 @@
-import getTotalLength from "../functions/getTotalLength";
-import { useData } from "../hooks/useData";
-import { folder } from "../images";
+import getTotalLength from "../../../functions/getTotalLength";
+import { useData } from "../../../hooks/useData";
+import { folder } from "../../../images";
 
 export default function BackendStats() {
    const { data } = useData();
@@ -12,7 +12,7 @@ export default function BackendStats() {
             <img alt="folder icon" draggable={false} loading="lazy" src={folder} />
             <p className="text-xl">{"App Statistics"}</p>
          </div>
-         <ul className="list-none flex flex-col gap-1 px-8">
+         <ul className="list-none flex flex-col gap-1 pl-8">
             <li> {`Songs: ${data.songs.length}`} </li>
             <li> {`Playlists: ${data.playlists.length}`} </li>
             <li> {`Artists: ${data.artists.length}`} </li>

@@ -5,12 +5,12 @@ import { useAudioRef } from "./hooks/useAudioRef";
 import Upload from "./pages/Upload";
 import Player from "./pages/Player";
 import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
+import Home from "./pages/home/Home";
 import TabBar from "./components/TabBar";
 import UserAgreement from "./pages/UserAgreement";
 import Invalid from "./pages/Invalid";
 import Settings from "./pages/Settings";
-import Slices from "./pages/Slices";
+import Slices from "./pages/slices/Slices";
 import Playlist from "./pages/Playlist";
 import Artist from "./pages/Artist";
 import Songs from "./pages/library/Songs";
@@ -21,6 +21,9 @@ import Playlists from "./pages/library/Playlists";
 import Memberships from "./pages/settings/Memberships";
 import Shop from "./pages/Shop";
 import Account from "./pages/settings/Account";
+import Contact from "./pages/settings/Contact";
+import Report from "./pages/settings/Report";
+import Issues from "./pages/settings/Issues";
 
 export default function App() {
   const { setReference } = useAudioRef();
@@ -61,6 +64,9 @@ export default function App() {
             <Route path="membership/" element={<Memberships />} />
             <Route path="account/" element={<Account />} />
             <Route path="upload/" element={<Upload />} />
+            <Route path="contact/" element={<Contact />} />
+            <Route path="report/" element={<Report />} />
+            <Route path="issues/" element={<Issues />} />
           </Route>
         </Routes>
       </div>

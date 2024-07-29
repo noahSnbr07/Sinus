@@ -21,6 +21,9 @@ export default function Navbar() {
          preferences: path === '/settings/preferences',
          membership: path === '/settings/membership',
          upload: path === '/settings/upload',
+         contact: path === '/settings/contact',
+         report: path === '/settings/report',
+         issues: path === '/settings/issues',
       }
       const isInLibrary: boolean = path === '/library/songs' || path === '/library/playlists' || path == '/library/artists';
       const isInSlices: boolean = path.includes("/slices");
@@ -29,7 +32,17 @@ export default function Navbar() {
       if (isInSettings.base) navigate("/");
       if (isInShop) navigate("/settings/membership");
       if (isInSlices) navigate("/");
-      if (isInSettings.account || isInSettings.membership || isInSettings.preferences || isInSettings.upload) navigate("/settings");
+      if (
+         isInSettings.account ||
+         isInSettings.membership ||
+         isInSettings.preferences ||
+         isInSettings.upload ||
+         isInSettings.contact ||
+         isInSettings.report ||
+         isInSettings.issues
+      ) {
+         navigate("/settings");
+      }
 
       if (isInspecting.song) navigate(`/library/${'songs'}`)
       if (isInspecting.playlist) navigate(`/library/${'playlists'}`)

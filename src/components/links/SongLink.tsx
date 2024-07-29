@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useSong } from '../hooks/useSong';
-import { explicit } from '../images';
-import { SongProps, TagProps } from '../interfaces/interfaces';
+import { useSong } from '../../hooks/useSong';
+import { explicit } from '../../images';
+import { SongProps, TagProps } from '../../interfaces/interfaces';
 import { Link } from 'react-router-dom';
 
 type SongLinkProps = { songParam: SongProps; className?: string; }

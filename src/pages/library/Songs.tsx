@@ -1,6 +1,6 @@
 import { useData } from '../../hooks/useData';
 import { SongProps } from '../../interfaces/interfaces';
-import SongLink from '../../components/SongLink';
+import SongLink from '../../components/links/SongLink';
 import Page from '../../components/Page';
 
 export default function Songs() {

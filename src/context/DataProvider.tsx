@@ -1,5 +1,5 @@
 import React, { createContext, useState, ReactNode, Dispatch, SetStateAction, useEffect } from 'react';
-import { ArtistProps, PlaylistProps, SongProps, UserProps } from '../interfaces/interfaces';
+import { ArtistProps, BugReportProps, PlaylistProps, SongProps, UserProps } from '../interfaces/interfaces';
 import { DataSnapshot, Database, getDatabase, onValue, ref } from 'firebase/database';
 
 interface DataInterface {
@@ -7,6 +7,7 @@ interface DataInterface {
    playlists: PlaylistProps[];
    artists: ArtistProps[];
    users: UserProps[];
+   reports: BugReportProps[];
 }
 
 interface DataContextInterface {
@@ -17,8 +18,10 @@ interface DataContextInterface {
 export const DataContext = createContext<DataContextInterface | undefined>(undefined);
 
 export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-   const [data, setData] = useState<DataInterface>({ songs: [], playlists: [], artists: [], users: [] });
+   const [data, setData] = useState<DataInterface>({ songs: [], playlists: [], artists: [], users: [], reports: [] });
    const db: Database = getDatabase();
+
+   useEffect(() => { console.log(data) }, [data]);
 
    useEffect(() => {
       const getDataFromFirebase = <T,>(location: string): Promise<T[]> => {
@@ -42,8 +45,9 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
             const songs = await getDataFromFirebase<SongProps>("/songs");
             const playlists = await getDataFromFirebase<PlaylistProps>("/playlists");
             const artists = await getDataFromFirebase<ArtistProps>("/artists");
-            const users = await getDataFromFirebase<UserProps>("/artists");
-            setData({ songs, playlists, artists, users });
+            const users = await getDataFromFirebase<UserProps>("/users");
+            const reports = await getDataFromFirebase<BugReportProps>("/reports");
+            setData({ songs, playlists, artists, users, reports });
          } catch (error) {
             console.error("Error fetching data from Firebase:", error);
          }

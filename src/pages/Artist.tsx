@@ -2,21 +2,36 @@ import { Params, useParams } from 'react-router-dom';
 import { useData } from '../hooks/useData';
 import Page from '../components/Page';
 import { play, verified } from '../images';
-import { useState } from 'react';
+import { CSSProperties, useState } from 'react';
 import { SongProps } from '../interfaces/interfaces';
-import SongLink from '../components/SongLink';
+import SongLink from '../components/links/SongLink';
 
 export default function Artist() {
+
+   //grab the data from the backend
    const { data } = useData();
+
+   //retrieve the index from the params
    const { artistIndex }: Readonly<Params<string>> = useParams();
+
+   //get the artist
    const artist = data.artists[Number(artistIndex)];
+
+   //extract the propertie sof artist
    const { /* id */ name, image, isVerified, /* songs */ } = artist;
 
-   const headerImageStyle: any = { backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundPosition: 'center' };
+   //predefine the styles for the banner image
+   const headerImageStyle: CSSProperties = {
+      backgroundImage: `url(${image})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center'
+   };
+
 
    const QuickActionsPanel = () => {
       const [isFollowing, setFollowing] = useState<boolean>(false);
 
+      //toggles the follow button locally
       const toggleFollow = () => setFollowing((prev: boolean) => !(prev));
 
       return (
@@ -38,13 +53,12 @@ export default function Artist() {
       );
    };
 
+   //filter the songs and only return the ones by the artist
    const ArtistFilteredSongs = () => {
+      const filteredSongs = [...data.songs].filter((song: SongProps) => song.artist === name);
       return (
          <div>
-            {data.songs.map((song: SongProps) => {
-               const isByArtist: boolean = name === song.artist;
-               return isByArtist && <SongLink key={song.id} songParam={song} />;
-            })}
+            {filteredSongs.map((song: SongProps) => <SongLink key={song.id} songParam={song} />)}
          </div>
       );
    };

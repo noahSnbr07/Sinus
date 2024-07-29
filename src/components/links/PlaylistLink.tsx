@@ -1,4 +1,4 @@
-import { PlaylistProps } from '../interfaces/interfaces'
+import { PlaylistProps } from '../../interfaces/interfaces'
 import { Link } from 'react-router-dom';
 
 type PlaylistLinkProps = {
@@ -6,6 +6,7 @@ type PlaylistLinkProps = {
 }
 export default function PlaylistLink({ playlistParam }: PlaylistLinkProps) {
 
+   //extract the properties of playlist
    const { id, name, cover, songs, publication }: PlaylistProps = playlistParam;
 
    return (

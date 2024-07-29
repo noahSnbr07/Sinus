@@ -40,7 +40,12 @@ import ios from './assets/svg/ios.svg';
 import android from './assets/svg/android.svg';
 import windows from './assets/svg/windows.svg';
 import language from './assets/svg/language.svg';
+import camera from './assets/svg/camera.svg';
+import mail from './assets/svg/mail.svg';
+import controller from './assets/svg/controller.svg';
 import search from './assets/svg/search.svg';
+import download from './assets/svg/download.svg';
+import code from './assets/svg/code.svg';
 
 //tiers
 import basic from './assets/tiers/basic.png';
@@ -101,4 +106,9 @@ export {
    windows,
    language,
    search,
+   camera,
+   mail,
+   controller,
+   download,
+   code,
 };

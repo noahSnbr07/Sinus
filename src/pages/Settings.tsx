@@ -1,7 +1,7 @@
 import Page from '../components/Page'
 import settingsLinksJSON from '../assets/libs/settingsLinks.json';
 import { SettingsLinkProps } from '../interfaces/interfaces';
-import SettingsLink from '../components/SettingsLink';
+import SettingsLink from '../components/links/SettingsLink';
 
 export default function Settings() {
 

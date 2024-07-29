@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { usePlayer } from "../hooks/usePlayer";
-import { useSong } from "../hooks/useSong";
-import { next, pause_white, play_white, prev } from "../images";
+import { usePlayer } from "../../../hooks/usePlayer";
+import { useSong } from "../../../hooks/useSong";
+import { next, pause_white, play_white, prev } from "../../../images";
 
 export default function TabPlayer(): JSX.Element {
    const { song } = useSong();

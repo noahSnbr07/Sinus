@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MembershipProps } from "../interfaces/interfaces";
+import { MembershipProps } from "../../interfaces/interfaces";
 
 export default function MembershipLink({ id, name, accent, description }: MembershipProps) {
    return (

@@ -1,6 +1,6 @@
 import { useData } from '../../hooks/useData';
 import { PlaylistProps } from '../../interfaces/interfaces';
-import PlaylistLink from '../../components/PlaylistLink';
+import PlaylistLink from '../../components/links/PlaylistLink';
 import Page from '../../components/Page';
 
 export default function Playlists() {

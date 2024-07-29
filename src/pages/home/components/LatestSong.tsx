@@ -1,12 +1,14 @@
 import { NavigateFunction, useNavigate } from 'react-router-dom';
-import { timing } from '../images';
-import { useData } from '../hooks/useData';
+import { timing } from '../../../images';
+import { useData } from '../../../hooks/useData';
 
 export default function LatestSong() {
    const { data } = useData();
 
+   //get the latest song
    const latestSong = data.songs[data.songs.length - 1];
 
+   //define the navigate functions
    const navigate: NavigateFunction = useNavigate();
    const gotoSong = (): void => navigate(`/Player/${data.songs[data.songs.length - 1].id}`);
 
@@ -30,7 +32,7 @@ export default function LatestSong() {
       );
    }
 
-   //placehodler for the text
+   //placeholder for the text
    const LatestSongText = (): JSX.Element => {
       return (
          <div>

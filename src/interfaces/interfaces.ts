@@ -85,3 +85,11 @@ export interface ArtistProps {
    isVerified: boolean;
    image: string;
 }
+export interface BugReportProps {
+   id: string;
+   sendFromDevice: string;
+   time: string;
+   topic: string;
+   body: string;
+   state: string;
+}

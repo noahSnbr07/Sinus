@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { artist, player, playlist } from "../images";
+import { artist, player, playlist } from "../../../images";
 
 interface LibraryRouteProps {
    link: string;

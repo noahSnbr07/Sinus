@@ -1,14 +1,14 @@
 import { useEffect, useRef } from "react";
-import { SongProps } from "../interfaces/interfaces";
+import { SongProps } from "../../../interfaces/interfaces";
 import { Link } from "react-router-dom";
-import { useAudioRef } from "../hooks/useAudioRef";
+import { useAudioRef } from "../../../hooks/useAudioRef";
 
 type LocalSliceProps = {
    slice: SongProps;
 };
 
 export default function Slice({ slice }: LocalSliceProps) {
-   const { id, name, artist, cover, audio, highlight, /* release, publisher, tags */ } = slice;
+   const { id, name, cover, audio, highlight } = slice;
    const audioRef = useRef<HTMLAudioElement>(null);
    const { reference } = useAudioRef();
 
@@ -27,7 +27,7 @@ export default function Slice({ slice }: LocalSliceProps) {
          audioRef.current.currentTime = parseFloat(String(highlight));
          if (reference && reference.current) audioRef.current.volume = reference.current.volume;
       }
-   })
+   }, [highlight, reference]);
 
    return (
       <div
@@ -35,7 +35,6 @@ export default function Slice({ slice }: LocalSliceProps) {
          style={{ scrollSnapAlign: 'start' }}>
          <Link to={`/player/${id}`} className="text-3xl flex-col justify-center items-center flex gap-2">
             <p>{`${name}`}</p>
-            <i className="text-white text-lg"> {`${artist}`} </i>
          </Link>
          <img onClick={togglePlayer} style={{ backgroundSize: 'cover' }} className="rounded-xl" draggable={false} loading="lazy" src={cover} />
 

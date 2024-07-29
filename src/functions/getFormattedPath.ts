@@ -11,6 +11,9 @@ export default function getFormattedPath(path: string) {
    if (path.includes("preferences")) return "preferences"
    if (path.includes("membership")) return "membership"
    if (path.includes("upload")) return "upload"
+   if (path.includes("contact")) return "contact"
+   if (path.includes("report")) return "report"
+   if (path.includes("issues")) return "issues"
 
    // Replace all slashes with spaces
    return pathWithNumbersReplaced.replace(/\//g, " ");

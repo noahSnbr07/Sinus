@@ -45,11 +45,13 @@ export default function Player() {
       fetchFile();
    }, [songIndex, setSong, setFileUrl, data.songs, storage]);
 
+   //controls e.g.: play, skip, prev, next
    const Controls = () => {
 
       const updateProgress = (e: React.ChangeEvent<HTMLInputElement>): void => {
          const newValue: number = Number(e.target.value);
 
+         //update the global reference
          setReference((prev: RefObject<HTMLAudioElement> | null) => {
             if (prev && prev.current) {
                prev.current.currentTime = newValue;
@@ -57,9 +59,11 @@ export default function Player() {
             return prev;
          });
 
+         //update the player
          setPlayer((prev: PlayerProps) => ({ ...prev, progress: newValue }));
       }
 
+      //returns name and artist isolated from other components
       const NameAndArtist = () => (
          <div className='flex flex-col'>
             <b className='text-2xl'> {song && song.name} </b>
@@ -67,6 +71,7 @@ export default function Player() {
          </div>
       );
 
+      //progressbar to indicate song current time
       const ProgressBar = () => (
          <div className='flex justify-between items-center gap-5'>
             <span> {secondsToTimeString(player.progress, false)} </span>
@@ -112,6 +117,7 @@ export default function Player() {
       );
    }
 
+   //big image to show cover
    const Cover = () => {
       return (
          <section className='grid place-items-center w-full aspect-square max-h-[350px]'>

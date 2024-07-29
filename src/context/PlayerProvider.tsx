@@ -36,6 +36,7 @@ export const PlayerProvider: React.FC<{ children: ReactNode }> = ({ children }):
       navigator.mediaSession.metadata = new MediaMetadata({
          title: song && song.name,
          artist: song && song.artist,
+
          artwork: [
             {
                src: song && song.cover,

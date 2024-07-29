@@ -14,5 +14,17 @@
    {
       "id": 3,
       "label": "upload"
+   },
+   {
+      "id": 4,
+      "label": "contact"
+   },
+   {
+      "id": 5,
+      "label": "report"
+   },
+   {
+      "id": 6,
+      "label": "issues"
    }
 ]

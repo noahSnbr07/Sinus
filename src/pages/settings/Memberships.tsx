@@ -1,7 +1,7 @@
 import Page from '../../components/Page'
 import membershipsJSON from '../../assets/libs/memberships.json';
 import { MembershipProps } from '../../interfaces/interfaces';
-import MembershipLink from '../../components/MembershipLink';
+import MembershipLink from '../../components/links/MembershipLink';
 
 export default function Memberships() {
 

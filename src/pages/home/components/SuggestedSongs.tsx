@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useData } from '../hooks/useData';
-import { SongProps } from '../interfaces/interfaces';
-import { refresh, shuffle } from '../images';
+import { useData } from '../../../hooks/useData';
+import { SongProps } from '../../../interfaces/interfaces';
+import { refresh, shuffle } from '../../../images';
 import { Link } from 'react-router-dom';
 
 export default function SuggestedSongs() {

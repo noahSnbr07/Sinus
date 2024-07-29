@@ -1,22 +1,30 @@
-import { useState, useEffect, useRef } from 'react';
-import Page from '../components/Page';
-import { useData } from '../hooks/useData';
-import { SongProps } from '../interfaces/interfaces';
-import Slice from '../components/Slice';
+import { useEffect, useRef, useMemo } from 'react';
+import Page from '../../components/Page';
+import { useData } from '../../hooks/useData';
+import { PlayerProps, SongProps } from '../../interfaces/interfaces';
+import Slice from './components/Slice';
+import { usePlayer } from '../../hooks/usePlayer';
 
 export default function Slices() {
    const { data } = useData();
-   const [slices] = useState<Array<SongProps>>(data?.songs ? [...data.songs] : []);
    const observers = useRef<IntersectionObserver[]>([]);
+   const { setPlayer } = usePlayer();
+
+   const shuffledSlices = useMemo(() => {
+      const slicesCopy = data?.songs ? [...data.songs] : [];
+      return slicesCopy.sort(() => Math.random() - 0.5);
+   }, [data]);
 
    useEffect(() => {
+      setPlayer((prev: PlayerProps) => ({ ...prev, isPlaying: false }));
+
       const observerOptions = {
          root: null,
          rootMargin: '0px',
          threshold: .1
       };
 
-      observers.current = slices.map((_,) => {
+      observers.current = shuffledSlices.map(() => {
          return new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                const audio = entry.target.querySelector('audio');
@@ -29,7 +37,7 @@ export default function Slices() {
          }, observerOptions);
       });
 
-      slices.forEach((_, index) => {
+      shuffledSlices.forEach((_, index) => {
          const sliceElement = document.getElementById(`slice-${index}`);
          if (sliceElement) {
             observers.current[index].observe(sliceElement);
@@ -44,11 +52,11 @@ export default function Slices() {
             }
          });
       };
-   }, [slices]);
+   }, [shuffledSlices, setPlayer]);
 
    return (
       <Page className='snap-y text-white snap-mandatory' scrollY style={{ scrollSnapType: 'y mandatory' }}>
-         {slices.map((slice: SongProps, index: number) => (
+         {shuffledSlices.map((slice: SongProps, index: number) => (
             <div className='h-full w-full' key={slice.id} id={`slice-${index}`}>
                <Slice slice={slice} />
             </div>

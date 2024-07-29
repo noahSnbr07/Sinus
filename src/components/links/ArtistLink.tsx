@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ArtistProps } from '../interfaces/interfaces'
+import { ArtistProps } from '../../interfaces/interfaces'
 
 interface LocalArtistLinkProps {
    artist: ArtistProps

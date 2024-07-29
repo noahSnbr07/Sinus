@@ -1,6 +1,6 @@
 import { ChangeEvent, useState, useEffect } from "react";
-import { useAudioRef } from "../hooks/useAudioRef";
-import { volume_low, volume_high, volume_mute } from "../images";
+import { useAudioRef } from "../../../hooks/useAudioRef";
+import { volume_low, volume_high, volume_mute } from "../../../images";
 
 export default function VolumeManager() {
    const { reference } = useAudioRef();

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { android, battery, ios, language, windows } from '../images';
+import { android, battery, ios, language, windows } from '../../../images';
 
 declare global {
    interface Navigator {
