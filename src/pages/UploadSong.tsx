@@ -11,11 +11,12 @@ import { useData } from '../hooks/useData';
 import tagsJSON from '../assets/libs/tags.json';
 import { secondsToTimeString } from '../functions/timeConverter';
 
-export default function Upload() {
+export default function UploadSong() {
    const { data } = useData();
    const [tags] = useState<TagProps[]>([...tagsJSON]);
    const [activeTags, setActiveTags] = useState<TagProps[]>([]);
    const audioRef = useRef<HTMLAudioElement>(null);
+   const [uploadProgress, setUploadProgress] = useState<number>(0);
 
    const currentTime: string = getCurrentTime();
 
@@ -65,8 +66,8 @@ export default function Upload() {
             const uploadTask = uploadBytesResumable(storageRef, file);
             uploadTask.on('state_changed',
                (snapshot) => {
-                  const progress = ((snapshot.bytesTransferred / snapshot.totalBytes) * 100).toFixed(0);
-                  console.log(`Upload is ${progress}% done`);
+                  const progress = Number(((snapshot.bytesTransferred / snapshot.totalBytes) * 100).toFixed(0));
+                  setUploadProgress(progress);
                },
                (error) => {
                   console.error('Error uploading file:', error);
@@ -74,7 +75,6 @@ export default function Upload() {
                () => {
 
                   getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                     console.log('File available at', downloadURL);
                      setNewSong((prev) => ({
                         ...prev,
                         audio: downloadURL
@@ -104,8 +104,7 @@ export default function Upload() {
          set(databaseRef(database, `/songs/${newSong.id}`), newSong);
          setNewSong(initialNewSong);
          setActiveTags([]);
-
-         console.log('Song uploaded successfully!');
+         setUploadProgress(0);
       } catch (error) {
          console.error('Error uploading song:', error);
       }
@@ -158,7 +157,7 @@ export default function Upload() {
             <p className='text-white italic'>Naming</p>
             <input
                placeholder={`New Song's Name`}
-               className='bg-light-1 p-2 text-white rounded-lg'
+               className='bg-light-1 p-2 text-white rounded-xl'
                type="text"
                value={newSong.name}
                onChange={(e: ChangeEvent<HTMLInputElement>) => setNewSong((prev) => ({ ...prev, name: e.target.value }))}
@@ -166,7 +165,7 @@ export default function Upload() {
 
             <input
                placeholder={`New Song's Artist`}
-               className='bg-light-1 p-2 text-white rounded-lg'
+               className='bg-light-1 p-2 text-white rounded-xl'
                type="text"
                value={newSong.artist}
                onChange={(e: ChangeEvent<HTMLInputElement>) => setNewSong((prev) => ({ ...prev, artist: e.target.value }))}
@@ -176,14 +175,14 @@ export default function Upload() {
             <p className='text-white italic'>Representation</p>
             <input
                placeholder={`New Cover Image URL`}
-               className='bg-light-1 p-2 text-white rounded-lg'
+               className='bg-light-1 p-2 text-white rounded-xl'
                type="url"
                value={newSong.cover}
                onChange={(e: ChangeEvent<HTMLInputElement>) => setNewSong((prev) => ({ ...prev, cover: e.target.value }))}
             />
             <input
                placeholder={`New Cover Audio File`}
-               className='bg-light-1 p-2 text-white rounded-lg file:appearance-none'
+               className='bg-light-1 p-2 text-white rounded-xl file:appearance-none'
                type="file"
                accept='audio/mp3'
                onChange={(e: ChangeEvent<HTMLInputElement>) => updateAudioFile(e)}
@@ -235,9 +234,16 @@ export default function Upload() {
                </p>
             </span>
          </div>
-         <button onClick={upload} className='bg-accent text-white p-5 rounded-xl text-xl'>
-            {" Publish to Sinus"}
-         </button>
+         {uploadProgress === 100 ? (
+            <button onClick={upload} className='bg-accent text-white p-5 rounded-xl text-xl'>
+               {" Publish to Sinus"}
+            </button>
+         ) : (
+            <div style={{ width: `${uploadProgress + '%'}` }} className=' p-5 rounded-xl bg-accent flex gap-1'>
+               <p className='text-white'> {uploadProgress} </p>
+               <p className='text-white'> {"%"} </p>
+            </div>
+         )}
       </Page>
    );
 }

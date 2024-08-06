@@ -10,7 +10,7 @@ export default function ArtistLink({ artist }: LocalArtistLinkProps) {
    return (
       <Link to={`/artist/${id}`} className='flex items-center gap-5 p-5'>
          <img src={image} className='h-20 rounded-full' loading='lazy' draggable={false} alt={`image of artist ${name}`} />
-         <b className='text-white text-xl'> {name} </b>
+         <p className='text-white font-bold text-xl'> {name} </p>
       </Link>
    );
 }

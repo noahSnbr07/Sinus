@@ -5,8 +5,11 @@ import { play, verified } from '../images';
 import { CSSProperties, useState } from 'react';
 import { SongProps } from '../interfaces/interfaces';
 import SongLink from '../components/links/SongLink';
+import { useSong } from '../hooks/useSong';
 
 export default function Artist() {
+
+   const { setSong } = useSong()
 
    //grab the data from the backend
    const { data } = useData();
@@ -17,8 +20,11 @@ export default function Artist() {
    //get the artist
    const artist = data.artists[Number(artistIndex)];
 
-   //extract the propertie sof artist
+   //extract props sof artist
    const { /* id */ name, image, isVerified, /* songs */ } = artist;
+
+   //get the songs
+   const filteredSongs = [...data.songs].filter((song: SongProps) => song.artist.includes(name));
 
    //predefine the styles for the banner image
    const headerImageStyle: CSSProperties = {
@@ -27,26 +33,28 @@ export default function Artist() {
       backgroundPosition: 'center'
    };
 
-
    const QuickActionsPanel = () => {
       const [isFollowing, setFollowing] = useState<boolean>(false);
 
       //toggles the follow button locally
       const toggleFollow = () => setFollowing((prev: boolean) => !(prev));
+      const playFirstSong = (): void => setSong(filteredSongs[0])
 
       return (
          <div className='flex justify-between'>
             <div className='flex gap-5'>
-               <button onClick={toggleFollow} className='text-white border-2 border-white py-1 px-2 rounded-lg'>
+               <button onClick={toggleFollow} className='text-white border-2 border-white py-1 w-20 rounded-xl'>
                   {isFollowing ? 'Unfollow' : 'Follow'}
                </button>
                {isVerified && <div className='flex gap-1 items-center'>
                   <img src={verified} draggable={false} loading='lazy' alt="verified icon w-full" />
-                  <i className='text-white'> verified </i>
+                  <p className='text-white font-italic'> verified </p>
                </div>}
             </div>
 
-            <button className='bg-accent aspect-square grid place-content-center rounded-full'>
+            <button
+               onClick={playFirstSong}
+               className='bg-accent aspect-square grid place-content-center rounded-full'>
                <img className='size-10' src={play} loading='lazy' draggable={false} alt="play icon" />
             </button>
          </div>
@@ -55,7 +63,6 @@ export default function Artist() {
 
    //filter the songs and only return the ones by the artist
    const ArtistFilteredSongs = () => {
-      const filteredSongs = [...data.songs].filter((song: SongProps) => song.artist === name);
       return (
          <div>
             {filteredSongs.map((song: SongProps) => <SongLink key={song.id} songParam={song} />)}

@@ -8,7 +8,7 @@ export default function MembershipLink({ id, name, accent, description }: Member
             <h2 className="text-2xl" style={{ color: accent }}> {name} </h2>
             <p> {description} </p>
          </div>
-         <button style={{ background: accent }} className="p-2 rounded-lg h-full w-full">
+         <button style={{ background: accent }} className="rounded-xl p-5 h-full w-full">
             <Link to={`/shop/${id}`}>
                {"Get"}
             </Link>

@@ -2,7 +2,6 @@ import { Route, Routes } from "react-router-dom";
 import { useSong } from "./hooks/useSong";
 import { Ref, useEffect, useRef } from 'react';
 import { useAudioRef } from "./hooks/useAudioRef";
-import Upload from "./pages/Upload";
 import Player from "./pages/Player";
 import Navbar from "./components/Navbar";
 import Home from "./pages/home/Home";
@@ -24,6 +23,8 @@ import Account from "./pages/settings/Account";
 import Contact from "./pages/settings/Contact";
 import Report from "./pages/settings/Report";
 import Issues from "./pages/settings/Issues";
+import UploadSong from "./pages/UploadSong";
+import UploadPlaylist from "./pages/UploadPlaylist";
 
 export default function App() {
   const { setReference } = useAudioRef();
@@ -63,7 +64,10 @@ export default function App() {
           <Route path="/settings">
             <Route path="membership/" element={<Memberships />} />
             <Route path="account/" element={<Account />} />
-            <Route path="upload/" element={<Upload />} />
+            <Route path="publish/">
+              <Route path="song/" element={<UploadSong />} />
+              <Route path="playlist/:publishPlaylistIndex" element={<UploadPlaylist />} />
+            </Route>
             <Route path="contact/" element={<Contact />} />
             <Route path="report/" element={<Report />} />
             <Route path="issues/" element={<Issues />} />

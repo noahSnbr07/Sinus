@@ -4,7 +4,7 @@ import AudioRefContext from "../context/AudioRefProvider";
 export const useAudioRef = () => {
    const context = useContext(AudioRefContext);
 
-   if (!context) throw new Error('useSong must be used within a SongProvider');
+   if (!context) throw new Error('useAudioRef must be used within a AudioRefProvider');
 
    return context;
 };

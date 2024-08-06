@@ -21,8 +21,6 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
    const [data, setData] = useState<DataInterface>({ songs: [], playlists: [], artists: [], users: [], reports: [] });
    const db: Database = getDatabase();
 
-   useEffect(() => { console.log(data) }, [data]);
-
    useEffect(() => {
       const getDataFromFirebase = <T,>(location: string): Promise<T[]> => {
          return new Promise((resolve, reject) => {
@@ -42,11 +40,11 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
       const fetchAllData = async () => {
          try {
-            const songs = await getDataFromFirebase<SongProps>("/songs");
-            const playlists = await getDataFromFirebase<PlaylistProps>("/playlists");
-            const artists = await getDataFromFirebase<ArtistProps>("/artists");
-            const users = await getDataFromFirebase<UserProps>("/users");
-            const reports = await getDataFromFirebase<BugReportProps>("/reports");
+            const songs = await getDataFromFirebase<SongProps>("/songs") || [];
+            const playlists = await getDataFromFirebase<PlaylistProps>("/playlists") || [];
+            const artists = await getDataFromFirebase<ArtistProps>("/artists") || [];
+            const users = await getDataFromFirebase<UserProps>("/users") || [];
+            const reports = await getDataFromFirebase<BugReportProps>("/reports") || [];
             setData({ songs, playlists, artists, users, reports });
          } catch (error) {
             console.error("Error fetching data from Firebase:", error);

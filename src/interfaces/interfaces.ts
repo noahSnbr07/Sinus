@@ -21,8 +21,7 @@ export interface SongProps {
 export interface PlayerProps {
    progress: number;
    isPlaying: boolean;
-   isLooping: boolean;
-   isShuffling: boolean;
+   mode: string;
    togglePlayer: () => void;
    play: () => void;
    pause: () => void;
@@ -46,6 +45,7 @@ export interface NewsArticleProps {
 export interface SettingsLinkProps {
    id: number;
    label: string;
+   url: string;
 }
 
 export interface UserProps {

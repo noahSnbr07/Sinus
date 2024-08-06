@@ -31,7 +31,6 @@ import volume_mute from './assets/svg/volume_mute.svg';
 import volume_low from './assets/svg/volume_low.svg';
 import volume_high from './assets/svg/volume_high.svg';
 import equalizer from './assets/svg/equalizer.svg';
-import shuffle from './assets/svg/shuffle.svg';
 import refresh from './assets/svg/refresh.svg';
 import verified from './assets/svg/verified.svg';
 import artist from './assets/svg/artist.svg';
@@ -46,6 +45,11 @@ import controller from './assets/svg/controller.svg';
 import search from './assets/svg/search.svg';
 import download from './assets/svg/download.svg';
 import code from './assets/svg/code.svg';
+import edit from './assets/svg/edit.svg';
+import bin from './assets/svg/bin.svg';
+import shuffle from './assets/svg/shuffle.svg';
+import repeat from './assets/svg/repeat.svg';
+import autoplay from './assets/svg/autoplay.svg';
 
 //tiers
 import basic from './assets/tiers/basic.png';
@@ -111,4 +115,8 @@ export {
    controller,
    download,
    code,
+   edit,
+   bin,
+   repeat,
+   autoplay,
 };

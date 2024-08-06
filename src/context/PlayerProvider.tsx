@@ -19,9 +19,8 @@ export const PlayerProvider: React.FC<{ children: ReactNode }> = ({ children }):
    // Initial Player Object
    const initialValue: PlayerProps = {
       progress: 0,
-      isPlaying: false,
-      isLooping: false,
-      isShuffling: false,
+      isPlaying: true,
+      mode: 'auto',
       togglePlayer: () => void {},
       play: () => void {},
       pause: () => void {},

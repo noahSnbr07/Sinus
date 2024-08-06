@@ -3,8 +3,23 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: Quicksand;
-  src: url('../src/assets/fonts/Quicksand-Bold.ttf');
+  font-family: 'Inter-Regular';
+  src: url('../src/assets/fonts/Inter_18pt-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Inter-Bold';
+  src: url('../src/assets/fonts/Inter_18pt-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Inter-Italic';
+  src: url('../src/assets/fonts/Inter_18pt-Italic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Inter-Black';
+  src: url('../src/assets/fonts/Inter_18pt-Black.ttf') format('truetype');
 }
 
 * {
@@ -12,14 +27,14 @@
   text-decoration: none;
   user-select: none;
   -webkit-user-select: none;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 html,
 body,
 #root {
-  font-family: Quicksand;
+  font-family: 'Inter-Regular', sans-serif;
   height: 100dvh;
   width: 100dvw;
   background-color: #000000;

@@ -20,7 +20,8 @@ export default function Navbar() {
          account: path === '/settings/account',
          preferences: path === '/settings/preferences',
          membership: path === '/settings/membership',
-         upload: path === '/settings/upload',
+         publishSong: path === '/settings/publish/song',
+         publishPlaylist: path === '/settings/publish/playlist',
          contact: path === '/settings/contact',
          report: path === '/settings/report',
          issues: path === '/settings/issues',
@@ -36,7 +37,8 @@ export default function Navbar() {
          isInSettings.account ||
          isInSettings.membership ||
          isInSettings.preferences ||
-         isInSettings.upload ||
+         isInSettings.publishSong ||
+         isInSettings.publishPlaylist ||
          isInSettings.contact ||
          isInSettings.report ||
          isInSettings.issues

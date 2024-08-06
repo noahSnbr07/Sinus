@@ -118,5 +118,20 @@
       "id": 25,
       "label": "Hard Tekk",
       "color": "rose"
+   },
+   {
+      "id": 26,
+      "label": "Hard Bass",
+      "color": "red"
+   },
+   {
+      "id": 27,
+      "label": "DNB",
+      "color": "cyan"
+   },
+   {
+      "id": 28,
+      "label": "Eurobeat",
+      "color": "silver"
    }
 ]

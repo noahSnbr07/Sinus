@@ -13,15 +13,19 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
       <DataProvider>
+
         <SongProvider>
           <AudioRefProvider>
             <PlayerProvider>
               <UserProvider>
+
                 <App />
+
               </UserProvider>
             </PlayerProvider>
           </AudioRefProvider>
         </SongProvider>
+
       </DataProvider>
     </BrowserRouter>
   </React.StrictMode>,

@@ -13,7 +13,10 @@ export default function SuggestedSongs() {
          return [];
       }
 
+      //shuffle the songs
       const shuffledSongs = [...data.songs].sort(() => 0.5 - Math.random());
+
+      //cut them down to 3 songs
       return shuffledSongs.slice(0, 3);
    };
 
@@ -46,10 +49,15 @@ export default function SuggestedSongs() {
    return (
       <div className='rounded-xl flex flex-col text-white bg-light-1 p-2 gap-2'>
          <div className='text-xl flex gap-2'>
-            <img src={shuffle} alt='try new songs icon' title='shuffle icon' draggable={false} loading='lazy' />
-            <p className=''> {"Try these"} </p>
+            <img
+               src={shuffle}
+               alt='try new songs icon'
+               title='shuffle icon'
+               draggable={false}
+               loading='lazy' />
+            <p className='font-bold text-xl'> {"Try these"} </p>
          </div>
-         <div style={{ overflowX: 'scroll' }} className='flex gap-2 w-full'>
+         <div className='flex gap-2 w-full'>
             <RenderedSongs />
          </div>
       </div>

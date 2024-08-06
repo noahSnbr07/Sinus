@@ -25,7 +25,7 @@ export default function LatestSong() {
                   src={latestSong.cover}
                   alt={`Latest Song: ${latestSong.name}`} />
             ) : (
-               <div className='bg-stack h-[640px] aspect-square rounded-lg'>
+               <div className='bg-stack h-[640px] aspect-square rounded-xl'>
                </div>
             )}
          </>
@@ -56,7 +56,7 @@ export default function LatestSong() {
          <div className='w-full aspect-square bg-light-1 p-2 rounded-xl flex flex-col gap-5'>
             <div className='text-stack-neutral text-xl flex gap-2'>
                <img src={timing} loading='lazy' draggable={false} alt='timing icon' />
-               <p className='text-white'>  {"Most recent Song"} </p>
+               <p className='text-white font-bold'> {"Most recent Song"} </p>
             </div>
             <div className='flex flex-col gap-5'>
                <LatestSongImage />

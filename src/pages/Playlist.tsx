@@ -1,12 +1,14 @@
-import { Params, useParams } from 'react-router-dom';
+import { Link, NavigateFunction, Params, useNavigate, useParams } from 'react-router-dom';
 import Page from '../components/Page';
 import { useData } from '../hooks/useData';
 import { PlaylistProps, SongProps } from '../interfaces/interfaces';
 import getTotalLength from '../functions/getTotalLength';
-import { play } from '../images';
+import { bin, edit, play } from '../images';
 import SongLink from '../components/links/SongLink';
 import { useSong } from '../hooks/useSong';
 import { useEffect, useState } from 'react';
+import { ref, remove } from 'firebase/database';
+import { database } from '../config/firebase';
 
 export default function Playlist() {
 
@@ -25,6 +27,8 @@ export default function Playlist() {
    //calculate the total playlist duration with custom function
    const totalDuration: string = getTotalLength(songs);
 
+   const navigate: NavigateFunction = useNavigate();
+
    //update the local songs array
    useEffect(() => {
       const newList: SongProps[] = playlist.songs.map((songId: number): SongProps => {
@@ -35,7 +39,7 @@ export default function Playlist() {
 
    const PlaylistImage = (): JSX.Element => {
       return (
-         <div className='w-full aspect-square grid place-items-center'>
+         <div className='w-full grid place-items-center'>
             <img
                className='w-1/2 rounded-xl'
                src={playlist.cover}
@@ -61,9 +65,19 @@ export default function Playlist() {
          setSong(songs[0]);
          console.log(songs[0])
       }
+      const deletePlaylist = (): void => {
+         remove(ref(database, `/playlists/${playlist.id}`));
+         navigate("/");
+      }
 
       return (
-         <div className='flex gap-5 items-center'>
+         <div className='flex gap-5 items-center text-white'>
+            <Link to={`/settings/publish/playlist/${playlist.id}`}>
+               <img src={edit} alt='edit icon' loading='lazy' draggable={false} />
+            </Link>
+            <button onClick={deletePlaylist}>
+               <img src={bin} alt='delete icon' loading='lazy' draggable={false} />
+            </button>
             <span className='flex-1 h-[2px] rounded-full bg-stack' />
             <button onClick={startPlayList} className='bg-white p-2 rounded-full border-none'>
                <img src={play} alt='play playlist' loading='lazy' className='h-10' draggable={false} />

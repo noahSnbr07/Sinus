@@ -6,14 +6,17 @@ import { Link } from 'react-router-dom';
 
 type SongLinkProps = { songParam: SongProps; className?: string; }
 
-//destructure the song into its properties
 export default function SongLink({ songParam, className }: SongLinkProps) {
 
+   //destructure the song into its properties
    const { id, name, artist, cover, isExplicit, tags } = songParam;
    const { song, setSong } = useSong();
    const [sortedTags, setSortedTags] = useState<string[]>([]);
 
-   //sort the tags
+   //boolean to indicate weather the cong is currently playing or not
+   const isPlaying: boolean = song.name === songParam.name;
+
+   //sort the tags and extratct name from object Tag
    useEffect(() => {
       let newTags: string[] = [];
       tags.map((tag: TagProps) => { newTags.push(tag.label) });
@@ -22,17 +25,20 @@ export default function SongLink({ songParam, className }: SongLinkProps) {
    }, [tags]);
 
    return (
-      <button onClick={() => void setSong(song)} tabIndex={1} className={`lg:w-1/2 xl:w-1/3 w-full ${className ? className : ''}`}>
+      <button
+         onClick={() => void setSong(song)}
+         tabIndex={1}
+         className={`lg:w-1/2 xl:w-1/3 w-full ${className ? className : ''}`}>
          <Link to={`/player/${id}`} className='flex items-center w-full h-full py-2 gap-2'>
             <div className='flex gap-2'>
                <img
-                  className='h-20 rounded-lg object-contain'
+                  className='h-20 rounded-xl object-contain'
                   loading='lazy'
                   draggable={false}
                   src={cover}
                   alt={`cover of ${name}`} />
                <div className='text-start flex flex-col'>
-                  <p className={`text-xl flex gap-2 ${song.name === songParam.name ? "text-accent" : "text-white"}`}>
+                  <p className={`text-xl flex gap-2 ${isPlaying ? "text-accent" : "text-white"}`}>
                      {isExplicit && (<img src={explicit} alt={`${song.name} is marked with explicit content`} />)}
                      {name}
                   </p>

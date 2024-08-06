@@ -8,12 +8,14 @@ import SuggestedSongs from './components/SuggestedSongs';
 import News from './components/News';
 import DeviceStatus from './components/DeviceStatus';
 import Finder from './components/Finder';
+import ModeToggler from './components/ModeToggler';
 
 //render component as individual tabs
 export default function Home() {
    return (
       <Page className='p-5 flex flex-col gap-5' scrollY>
          <TabPlayer />
+         <ModeToggler />
          <LibraryRoutes />
          <VolumeManager />
          <Finder />

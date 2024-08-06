@@ -135,7 +135,7 @@ export default function Player() {
       <Page className='flex'>
          <div className='backdrop-blur-3xl flex flex-1'>
             <img src={song && song.cover} className='absolute top-0 left-0 w-screen object-cover h-full' />
-            <div className='backdrop-blur-3xl backdrop-brightness-50 flex-1 flex justify-between flex-col back'>
+            <div className='backdrop-blur-3xl backdrop-brightness-50 flex-1 flex justify-between flex-col'>
                <Cover />
                <Controls />
             </div>
