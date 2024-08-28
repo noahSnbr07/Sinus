@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import Page from '../components/Page';
 import { app } from '../config/firebase';
 import { FirebaseStorage, getDownloadURL, getStorage, ref as storageRef } from "firebase/storage";
-import { RefObject, useEffect, useState } from 'react';
+import { RefObject, useEffect, useRef, useState } from 'react';
 import { useSong } from '../hooks/useSong';
 import { usePlayer } from '../hooks/usePlayer';
 import { next, pause_black, play, prev } from '../images';
@@ -19,6 +19,8 @@ export default function Player() {
    const { player, setPlayer } = usePlayer();
    const { setReference } = useAudioRef();
    const { data } = useData();
+
+   const scrollRef = useRef<HTMLDivElement>(null);
 
    const storage: FirebaseStorage = getStorage(app);
    const [/* fileUrl */, setFileUrl] = useState<string>('');
@@ -47,7 +49,6 @@ export default function Player() {
 
    //controls e.g.: play, skip, prev, next
    const Controls = () => {
-
       const updateProgress = (e: React.ChangeEvent<HTMLInputElement>): void => {
          const newValue: number = Number(e.target.value);
 
@@ -67,7 +68,7 @@ export default function Player() {
       const NameAndArtist = () => (
          <div className='flex flex-col'>
             <b className='text-2xl'> {song && song.name} </b>
-            <p className='italic text-white'> {song && song.artist} </p>
+            <p className='italic '> {song && song.artist} </p>
          </div>
       );
 
@@ -109,7 +110,7 @@ export default function Player() {
       );
 
       return (
-         <section className='flex flex-col gap-5 text-white p-5 '>
+         <section className='flex flex-col gap-5  p-5 '>
             <NameAndArtist />
             <ProgressBar />
             <Buttons />
@@ -137,6 +138,8 @@ export default function Player() {
             <img src={song && song.cover} className='absolute top-0 left-0 w-screen object-cover h-full' />
             <div className='backdrop-blur-3xl backdrop-brightness-50 flex-1 flex justify-between flex-col'>
                <Cover />
+               <div ref={scrollRef} className='flex-1'>
+               </div>
                <Controls />
             </div>
          </div>

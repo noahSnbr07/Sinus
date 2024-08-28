@@ -47,7 +47,7 @@ export default function SuggestedSongs() {
    }
 
    return (
-      <div className='rounded-xl flex flex-col text-white bg-light-1 p-2 gap-2'>
+      <div className='rounded-xl flex flex-col  bg-light-1 p-2 gap-2'>
          <div className='text-xl flex gap-2'>
             <img
                src={shuffle}

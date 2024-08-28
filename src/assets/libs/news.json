@@ -1,38 +1,47 @@
 [
    {
-      "title": "Integrate Your Songs",
-      "body": "Sinus ist nun darauf ausgelegt, deine Audio Uploads zu speichern",
+      "title": "User Experience Imporovments",
+      "body": "Animationen wurden hinzugefügt",
       "isExpanded": false,
       "publisher": {
          "name": "Noah",
-         "date": "06.07.2024 - 16:00 Uhr"
+         "date": "28.08.2024 - 16:48 Uhr"
       }
    },
    {
-      "title": "Partialieller Session Support",
-      "body": "Sinus kann nun den aktuellen Track in deinen Benachrichtigungen anzeigen",
+      "title": "Realtime Updates",
+      "body": "Änderungen in Echtzeit erfahren",
       "isExpanded": false,
       "publisher": {
          "name": "Noah",
-         "date": "07.07.2024 - 08:00 Uhr"
+         "date": "28.08.2024 - 16:52 Uhr"
       }
    },
    {
-      "title": "Das Tagging ist da",
-      "body": "Füge deinen Songs Tags hinzu",
+      "title": "Boot Leader",
+      "body": "Bessere Fehlerpräventionen durch dynamische Ladezeiten",
       "isExpanded": false,
       "publisher": {
          "name": "Noah",
-         "date": "18.07.2024 - 21:54 Uhr"
+         "date": "28.08.2024 - 16:56 Uhr"
       }
    },
    {
-      "title": "Sinus Slices",
-      "body": "Schnupper ganz einfach und schnell in die Songs-Highlights rein!",
+      "title": "Quick Message",
+      "body": "Dringende Neuigkeiten sind auf dem Home Bildschirm ganz unten einzusehen",
       "isExpanded": false,
       "publisher": {
          "name": "Noah",
-         "date": "21.07.2024 - 17:06 Uhr"
+         "date": "28.08.2024 - 17:03 Uhr"
+      }
+   },
+   {
+      "title": "General Imporovements",
+      "body": "~60% der von Nutzern gefundenen Fhlern und Ideen wurde behoben/umgesetzt",
+      "isExpanded": false,
+      "publisher": {
+         "name": "Noah",
+         "date": "28.08.2024 - 17:12 Uhr"
       }
    }
 ]

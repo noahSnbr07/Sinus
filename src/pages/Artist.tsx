@@ -43,12 +43,12 @@ export default function Artist() {
       return (
          <div className='flex justify-between'>
             <div className='flex gap-5'>
-               <button onClick={toggleFollow} className='text-white border-2 border-white py-1 w-20 rounded-xl'>
+               <button onClick={toggleFollow} className='border-white py-1 w-20 rounded-xl'>
                   {isFollowing ? 'Unfollow' : 'Follow'}
                </button>
                {isVerified && <div className='flex gap-1 items-center'>
                   <img src={verified} draggable={false} loading='lazy' alt="verified icon w-full" />
-                  <p className='text-white font-italic'> verified </p>
+                  <p className='ic'> verified </p>
                </div>}
             </div>
 
@@ -65,7 +65,11 @@ export default function Artist() {
    const ArtistFilteredSongs = () => {
       return (
          <div>
-            {filteredSongs.map((song: SongProps) => <SongLink key={song.id} songParam={song} />)}
+            {filteredSongs.map((song: SongProps, _: number) =>
+               <SongLink
+                  delayIndex={_}
+                  key={song.id}
+                  songParam={song} />)}
          </div>
       );
    };
@@ -73,7 +77,7 @@ export default function Artist() {
    return (
       <Page scrollY className='flex flex-col gap-5'>
          <div style={headerImageStyle} className='h-64 bg-stack flex items-end px-5 py-2 pt-64'>
-            <p className='text-5xl text-white'> {name} </p>
+            <p className='text-5xl'> {name} </p>
          </div>
          <div className='px-5 flex flex-col gap-5'>
             <QuickActionsPanel />

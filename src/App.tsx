@@ -25,6 +25,7 @@ import Report from "./pages/settings/Report";
 import Issues from "./pages/settings/Issues";
 import UploadSong from "./pages/UploadSong";
 import UploadPlaylist from "./pages/UploadPlaylist";
+import Message from "./pages/Message";
 
 export default function App() {
   const { setReference } = useAudioRef();
@@ -63,6 +64,7 @@ export default function App() {
           <Route path="/settings" element={<Settings />} />
           <Route path="/settings">
             <Route path="membership/" element={<Memberships />} />
+            <Route path="message/" element={<Message />} />
             <Route path="account/" element={<Account />} />
             <Route path="publish/">
               <Route path="song/" element={<UploadSong />} />

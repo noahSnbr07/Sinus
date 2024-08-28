@@ -37,7 +37,7 @@ export default function LatestSong() {
       return (
          <div>
             {latestSong ? (
-               <div className='flex flex-col gap-1 text-white'>
+               <div className='flex flex-col gap-1 '>
                   <p className='text-xl'>{latestSong && latestSong.name}</p>
                   <p className='italic text-stack-neutral'>{latestSong.artist}</p>
                </div>
@@ -56,14 +56,14 @@ export default function LatestSong() {
          <div className='w-full aspect-square bg-light-1 p-2 rounded-xl flex flex-col gap-5'>
             <div className='text-stack-neutral text-xl flex gap-2'>
                <img src={timing} loading='lazy' draggable={false} alt='timing icon' />
-               <p className='text-white font-bold'> {"Most recent Song"} </p>
+               <p className=' font-bold'> {"Most recent Song"} </p>
             </div>
             <div className='flex flex-col gap-5'>
                <LatestSongImage />
                <LatestSongText />
                <button
                   onClick={gotoSong}
-                  className='w-full p-5 bg-accent rounded-md text-xl text-white'>
+                  className='w-full p-5 bg-accent rounded-md text-xl '>
                   <b> {"Play it now"} </b>
                </button>
             </div>

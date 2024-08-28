@@ -42,7 +42,7 @@ export default function VolumeManager() {
             className="flex-1 appearance-none bg-light-2 rounded-full h-3 accent-white"
             onChange={changeVolume}
          />
-         <span className="w-5 text-white"> {displayVolumeNumber()} </span>
+         <span className="w-5 "> {displayVolumeNumber()} </span>
       </div>
    );
 }

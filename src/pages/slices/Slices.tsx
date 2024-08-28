@@ -55,7 +55,7 @@ export default function Slices() {
    }, [shuffledSlices, setPlayer]);
 
    return (
-      <Page className='snap-y text-white snap-mandatory' scrollY style={{ scrollSnapType: 'y mandatory' }}>
+      <Page className='snap-y  snap-mandatory' scrollY style={{ scrollSnapType: 'y mandatory' }}>
          {shuffledSlices.map((slice: SongProps, index: number) => (
             <div className='h-full w-full' key={slice.id} id={`slice-${index}`}>
                <Slice slice={slice} />

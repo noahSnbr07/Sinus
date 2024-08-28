@@ -9,13 +9,13 @@ export default function UserAgreement() {
 
    const LanguageToggler = (): JSX.Element => {
       return (
-         <button onClick={() => void setLangIsEn(prev => !prev)} className='rounded-xl bg-light-1 p-5 text-white text-xl'>
+         <button onClick={() => void setLangIsEn(prev => !prev)} className='rounded-xl bg-light-1 p-5  text-xl'>
             {!langIsEn ? 'Switch To german' : 'Wechsle auf English'}
          </button>
       )
    }
    return (
-      <Page className='text-white p-5 flex flex-col gap-5'>
+      <Page className=' p-5 flex flex-col gap-5'>
          <p className='text-center text-xl'> {langIsEn ? agreement.de.header : agreement.en.header}</p>
          <ol className='flex flex-col gap-5'>
             {langIsEn ?

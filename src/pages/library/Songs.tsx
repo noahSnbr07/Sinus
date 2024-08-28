@@ -8,10 +8,10 @@ export default function Songs() {
    return (
       <Page scrollY>
          {
-            data.songs.map((song: SongProps) => (
-               <SongLink className='px-5' key={song.id} songParam={song} />
+            data.songs.map((song: SongProps, _: number) => (
+               <SongLink delayIndex={_} className='px-5' key={song.id} songParam={song} />
             ))
          }
       </Page>
-   )
+   );
 }

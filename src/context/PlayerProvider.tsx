@@ -1,5 +1,5 @@
 import React, { createContext, useState, ReactNode, Dispatch, SetStateAction, useEffect } from 'react';
-import { PlayerProps } from '../interfaces/interfaces';
+import { PlayerProps, SongProps } from '../interfaces/interfaces';
 import { useAudioRef } from '../hooks/useAudioRef';
 import { useData } from '../hooks/useData';
 import { useSong } from '../hooks/useSong';
@@ -88,8 +88,10 @@ export const PlayerProvider: React.FC<{ children: ReactNode }> = ({ children }):
    };
 
    const skipNextLocal = () => {
-      const currentIndex = data.songs.findIndex(s => s.id === song.id);
-      const nextIndex = currentIndex + 1;
+      let currentIndex = data.songs.findIndex(s => s.id === song.id);
+      const randomSongIndex: number = data.songs[Math.floor(Math.random() * data.songs.length - 1)].id;
+      if (player.mode === 'shuffle') currentIndex = randomSongIndex;
+      const nextIndex = currentIndex + 1 > data.songs.length ? 0 : currentIndex + 1;
 
       if (nextIndex >= data.songs.length) setSong(data.songs[0]);
       else setSong(data.songs[nextIndex]);
@@ -102,6 +104,57 @@ export const PlayerProvider: React.FC<{ children: ReactNode }> = ({ children }):
       if (prevIndex < 0) setSong(data.songs[data.songs.length - 1]);
       else setSong(data.songs[prevIndex]);
    };
+
+   const getNextSong = (): SongProps => {
+      const mode: string = player.mode;
+      let nextSong: SongProps;
+
+      switch (mode) {
+         case "auto": {
+            const nextIndex = (data.songs.findIndex(s => s.id === song.id) + 1) % data.songs.length;
+            nextSong = data.songs[nextIndex];
+            break;
+         }
+         case "repeat": {
+            nextSong = song; // Repeat the same song
+            break;
+         }
+         case "shuffle": {
+            let randomIndex;
+            do {
+               randomIndex = Math.floor(Math.random() * data.songs.length);
+            }
+            while (data.songs[randomIndex].id === song.id);
+            nextSong = data.songs[randomIndex];
+            break;
+         }
+         default: {
+            nextSong = song;
+         }
+      }
+      return nextSong;
+   };
+
+   const handleAudioPlayback = async () => {
+      if (song.id >= data.songs.length) return;
+      if (reference && reference.current) {
+         reference.current.onended = async () => {
+            const nextSong: SongProps = getNextSong();
+            setSong(nextSong);
+            reference.current!.currentTime = 0;
+            await reference.current!.play();
+         };
+
+         try {
+            await reference.current.pause();
+            await reference.current.play();
+         } catch (error) {
+            console.error('Error during audio playback:', error);
+         }
+      }
+   };
+
+   useEffect(() => { handleAudioPlayback(); }, [song]);
 
    // Apply the local function when setPlayer is called
    useEffect(() => {

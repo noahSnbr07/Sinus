@@ -19,7 +19,7 @@ export default function Finder() {
       );
 
       //fallback if there is no match
-      const fallback: JSX.Element = <i className="w-full text-center p-2 text-white"> {"no Match "}</i>;
+      const fallback: JSX.Element = <i className="w-full text-center p-2 "> {"no Match "}</i>;
 
       //prevent edge cases
       if (query.length < 1) return <></>;
@@ -38,7 +38,7 @@ export default function Finder() {
             <input
                placeholder="song query"
                maxLength={50}
-               className="flex-1 rounded-md bg-light-2 p-2 text-white"
+               className="flex-1 rounded-md bg-light-2 p-2 "
                type="text"
                value={query}
                onChange={(e: ChangeEvent<HTMLInputElement>) => setQuery(e.target.value)}

@@ -43,7 +43,7 @@ const LibraryRoute: React.FunctionComponent<RouteComponentParsedProps> = ({ data
 
 export default function LibraryRoutes() {
    return (
-      <div className="w-full gap-2 flex text-white">
+      <div className="w-full gap-2 flex ">
          {libraryRoutes.map((route: LibraryRouteProps) => <LibraryRoute key={route.index} data={route} />)}
       </div>
    );

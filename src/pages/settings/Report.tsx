@@ -54,7 +54,7 @@ export default function Report() {
    return (
       <Page className='flex flex-col gap-5 p-5'>
          <input
-            className='bg-light-1 text-white rounded-xl p-2'
+            className='bg-light-1  rounded-xl p-2'
             placeholder='Topic'
             maxLength={50}
             minLength={5}
@@ -64,12 +64,12 @@ export default function Report() {
          <textarea
             minLength={10}
             maxLength={500}
-            className='flex-1 rounded-xl p-2 bg-light-1 text-white'
+            className='flex-1 rounded-xl p-2 bg-light-1 '
             value={report.body}
             placeholder='describe your issue here'
             onChange={(e: ChangeEvent<HTMLTextAreaElement>) => updateBody(e.target.value)}
          />
-         <button className='bg-accent p-5 text-white rounded-xl' onClick={sendReport}>
+         <button className='bg-accent p-5  rounded-xl' onClick={sendReport}>
             {"Send Report"}
          </button>
       </Page>

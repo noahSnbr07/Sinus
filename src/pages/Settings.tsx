@@ -15,7 +15,8 @@ export default function Settings() {
       { id: 4, label: "Create Playlist", url: `publish/playlist/${data.data.playlists.length}` },
       { id: 5, label: "Contact Me", url: "contact" },
       { id: 6, label: "Report a Problem", url: "report" },
-      { id: 7, label: "See Issues", url: "issues" }
+      { id: 7, label: "See Issues", url: "issues" },
+      { id: 8, label: "Edit Quick Update", url: "message" },
    ]
 
    return (

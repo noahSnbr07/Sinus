@@ -31,7 +31,7 @@ export default function Slice({ slice }: LocalSliceProps) {
 
    return (
       <div
-         className="flex flex-col justify-center items-center gap-5 h-full w-full backdrop-blur-3xl text-white p-5"
+         className="flex flex-col justify-center items-center gap-5 h-full w-full backdrop-blur-3xl  p-5"
          style={{ scrollSnapAlign: 'start' }}>
          <Link to={`/player/${id}`} className="text-3xl flex-col justify-center items-center flex gap-2">
             <p>{`${name}`}</p>

@@ -25,6 +25,7 @@ export default function Navbar() {
          contact: path === '/settings/contact',
          report: path === '/settings/report',
          issues: path === '/settings/issues',
+         message: path === '/settings/message',
       }
       const isInLibrary: boolean = path === '/library/songs' || path === '/library/playlists' || path == '/library/artists';
       const isInSlices: boolean = path.includes("/slices");
@@ -41,7 +42,8 @@ export default function Navbar() {
          isInSettings.publishPlaylist ||
          isInSettings.contact ||
          isInSettings.report ||
-         isInSettings.issues
+         isInSettings.issues ||
+         isInSettings.message
       ) {
          navigate("/settings");
       }
@@ -59,7 +61,7 @@ export default function Navbar() {
                <button className='mr-2' onClick={() => goBack(location.pathname)}>
                   {!isHomePath && <img src={back} alt='back button icon' draggable={false} />}
                </button>
-               <h1 className='text-white text-xl'>{currentPathName}</h1>
+               <h1 className=' text-xl'>{currentPathName}</h1>
             </div>
          </nav>
       </header>

@@ -8,6 +8,7 @@ interface DataInterface {
    artists: ArtistProps[];
    users: UserProps[];
    reports: BugReportProps[];
+   message: string;
 }
 
 interface DataContextInterface {
@@ -18,40 +19,42 @@ interface DataContextInterface {
 export const DataContext = createContext<DataContextInterface | undefined>(undefined);
 
 export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-   const [data, setData] = useState<DataInterface>({ songs: [], playlists: [], artists: [], users: [], reports: [] });
+   const [data, setData] = useState<DataInterface>({
+      songs: [],
+      playlists: [],
+      artists: [],
+      users: [],
+      reports: [],
+      message: ''
+   });
    const db: Database = getDatabase();
 
    useEffect(() => {
-      const getDataFromFirebase = <T,>(location: string): Promise<T[]> => {
-         return new Promise((resolve, reject) => {
-            const dbRef = ref(db, location);
-            onValue(dbRef, (snapshot: DataSnapshot) => {
-               const data: T[] = snapshot.val();
-               if (data) {
-                  resolve(data);
-               } else {
-                  reject(new Error(`No data available at location: ${location}`));
-               }
-            }, (error) => {
-               reject(error);
-            });
+      // Function to handle updates from Firebase
+      const handleDataUpdate = <T,>(location: string, key: keyof DataInterface) => {
+         const dbRef = ref(db, location);
+         onValue(dbRef, (snapshot: DataSnapshot) => {
+            const updatedData: T[] = snapshot.val() || [];
+            console.warn("DB Contents changed at", location);
+
+            // Update the specific key in the data state
+            setData(prevData => ({
+               ...prevData,
+               [key]: updatedData
+            }));
+         }, (error) => {
+            console.error(`Error fetching data from ${location}:`, error);
          });
       };
 
-      const fetchAllData = async () => {
-         try {
-            const songs = await getDataFromFirebase<SongProps>("/songs") || [];
-            const playlists = await getDataFromFirebase<PlaylistProps>("/playlists") || [];
-            const artists = await getDataFromFirebase<ArtistProps>("/artists") || [];
-            const users = await getDataFromFirebase<UserProps>("/users") || [];
-            const reports = await getDataFromFirebase<BugReportProps>("/reports") || [];
-            setData({ songs, playlists, artists, users, reports });
-         } catch (error) {
-            console.error("Error fetching data from Firebase:", error);
-         }
-      };
+      // Set up listeners for each data type
+      handleDataUpdate<SongProps>("/songs", "songs");
+      handleDataUpdate<PlaylistProps>("/playlists", "playlists");
+      handleDataUpdate<ArtistProps>("/artists", "artists");
+      handleDataUpdate<UserProps>("/users", "users");
+      handleDataUpdate<BugReportProps>("/reports", "reports");
+      handleDataUpdate<string>("/message", "message");
 
-      fetchAllData();
    }, [db]);
 
    return (

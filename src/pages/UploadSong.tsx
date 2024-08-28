@@ -143,7 +143,6 @@ export default function UploadSong() {
 
    const handleHighlightChange = (e: ChangeEvent<HTMLInputElement>): void => {
       const newValue = e.target.value;
-      console.log(e.target.value);
       setNewSong((prev: SongProps) => ({ ...prev, highlight: Number(newValue) }));
       if (audioRef && audioRef.current) {
          audioRef.current.currentTime = parseFloat(newValue);
@@ -154,10 +153,10 @@ export default function UploadSong() {
       <Page scrollY className='flex flex-col gap-5 p-5'>
          <audio autoPlay ref={audioRef} src={newSong.audio && newSong.audio} />
          <div className='flex flex-col gap-2'>
-            <p className='text-white italic'>Naming</p>
+            <p className=' italic'>Naming</p>
             <input
                placeholder={`New Song's Name`}
-               className='bg-light-1 p-2 text-white rounded-xl'
+               className='bg-light-1 p-2  rounded-xl'
                type="text"
                value={newSong.name}
                onChange={(e: ChangeEvent<HTMLInputElement>) => setNewSong((prev) => ({ ...prev, name: e.target.value }))}
@@ -165,37 +164,37 @@ export default function UploadSong() {
 
             <input
                placeholder={`New Song's Artist`}
-               className='bg-light-1 p-2 text-white rounded-xl'
+               className='bg-light-1 p-2  rounded-xl'
                type="text"
                value={newSong.artist}
                onChange={(e: ChangeEvent<HTMLInputElement>) => setNewSong((prev) => ({ ...prev, artist: e.target.value }))}
             />
          </div>
          <div className='flex flex-col gap-2'>
-            <p className='text-white italic'>Representation</p>
+            <p className=' italic'>Representation</p>
             <input
                placeholder={`New Cover Image URL`}
-               className='bg-light-1 p-2 text-white rounded-xl'
+               className='bg-light-1 p-2  rounded-xl'
                type="url"
                value={newSong.cover}
                onChange={(e: ChangeEvent<HTMLInputElement>) => setNewSong((prev) => ({ ...prev, cover: e.target.value }))}
             />
             <input
                placeholder={`New Cover Audio File`}
-               className='bg-light-1 p-2 text-white rounded-xl file:appearance-none'
+               className='bg-light-1 p-2  rounded-xl file:appearance-none'
                type="file"
                accept='audio/mp3'
                onChange={(e: ChangeEvent<HTMLInputElement>) => updateAudioFile(e)}
             />
          </div>
          <div className='flex flex-col gap-2'>
-            <i className='text-white'> {"Tag Your Song"} </i>
+            <i className=''> {"Tag Your Song"} </i>
             <div className='bg-light-1 p-2 flex flex-wrap gap-2 rounded-xl'>
                {tags.map((tag: TagProps, key: number) => <Tag key={key} id={tag.id} label={tag.label} color={tag.color} />)}
             </div>
          </div>
          <div className='flex flex-col gap-2'>
-            <i className='text-white'>
+            <i className=''>
                {"Select Song Highlight"}
             </i>
             <div className='flex gap-5'>
@@ -207,7 +206,7 @@ export default function UploadSong() {
                      max={newSong.length && newSong.length}
                      value={newSong.highlight}
                      onChange={(e) => handleHighlightChange(e)} />
-                  <span className='text-white'> {secondsToTimeString(newSong.highlight)} </span>
+                  <span className=''> {secondsToTimeString(newSong.highlight)} </span>
                </div>
             </div>
          </div>
@@ -219,7 +218,7 @@ export default function UploadSong() {
                   value={newSong.isExplicit ? 'checked' : 'unchecked'}
                   type='checkbox'
                />
-               <p className='text-white'> {"Mark This Song as Explicit"} </p>
+               <p className=''> {"Mark This Song as Explicit"} </p>
             </span>
             <span className='flex gap-2'>
                <input
@@ -228,20 +227,20 @@ export default function UploadSong() {
                   value={termsAgreed ? 'checked' : 'unchecked'}
                   type='checkbox'
                />
-               <p className='text-white'>
+               <p className=''>
                   {" I Agree with Sinus's"} &nbsp;
                   <Link className='text-accent underline' to={"/user-Agreement"}>{"User Agreement"}</Link>
                </p>
             </span>
          </div>
          {uploadProgress === 100 ? (
-            <button onClick={upload} className='bg-accent text-white p-5 rounded-xl text-xl'>
+            <button onClick={upload} className='bg-accent  p-5 rounded-xl text-xl'>
                {" Publish to Sinus"}
             </button>
          ) : (
             <div style={{ width: `${uploadProgress + '%'}` }} className=' p-5 rounded-xl bg-accent flex gap-1'>
-               <p className='text-white'> {uploadProgress} </p>
-               <p className='text-white'> {"%"} </p>
+               <p className=''> {uploadProgress} </p>
+               <p className=''> {"%"} </p>
             </div>
          )}
       </Page>

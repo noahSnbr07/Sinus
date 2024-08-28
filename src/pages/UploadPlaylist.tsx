@@ -131,18 +131,18 @@ export default function UploadPlaylist() {
    );
 
    return (
-      <Page scrollY className="flex flex-col gap-5 p-5 text-white">
+      <Page scrollY className="flex flex-col gap-5 p-5 ">
          <div className="flex flex-col gap-2">
             <p> Name your Playlist </p>
             <input
-               className="p-2 rounded-xl bg-light-1 text-white"
+               className="p-2 rounded-xl bg-light-1 "
                type="text"
                placeholder="name"
                value={newPlaylist.name}
                onChange={(e: ChangeEvent<HTMLInputElement>) => changeName(e)}
             />
             <input
-               className="p-2 rounded-xl bg-light-1 text-white"
+               className="p-2 rounded-xl bg-light-1 "
                type="text"
                placeholder="image url"
                value={newPlaylist.cover}
@@ -158,7 +158,7 @@ export default function UploadPlaylist() {
             />
             <p> Make My Playlist Public </p>
          </div>
-         <button onClick={uploadPlaylist} className="p-5 bg-accent text-white rounded-xl">
+         <button onClick={uploadPlaylist} className="p-5 bg-accent  rounded-xl">
             {"Create"}
          </button>
          <div className="flex flex-col gap-2">

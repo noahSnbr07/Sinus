@@ -36,8 +36,8 @@ function NewsArticle({ title, body, isExpanded, publisher }: NewsArticleProps): 
             alt={`image of ${name}`}
             loading='lazy'
             draggable={false} />
-         <p className='text-lg text-white'> {name} </p>
-         <i className='text-sm text-white'> {date} </i>
+         <p className='text-lg '> {name} </p>
+         <i className='text-sm '> {date} </i>
       </div>
    );
 
@@ -51,11 +51,11 @@ function NewsArticle({ title, body, isExpanded, publisher }: NewsArticleProps): 
                loading='lazy'
                src={currentIcon}
                alt={`${isExpanded ? 'shrink' : 'expand'} button icon`} />
-            <p className='text-xl text-white'> {title} </p>
+            <p className='text-xl '> {title} </p>
          </button>
          {shown && (
             <div className='flex flex-col gap-2 pl-8'>
-               <article className='text-white text-lg'>
+               <article className=' text-lg'>
                   {body}
                </article>
                <PublisherPart />

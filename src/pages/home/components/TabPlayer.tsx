@@ -21,7 +21,7 @@ export default function TabPlayer(): JSX.Element {
                draggable={false}
                className="h-14 rounded-md"
             />
-            <div className="flex flex-col flex-1 justify-center items-start text-white">
+            <div className="flex flex-col flex-1 justify-center items-start ">
                <p className="text-lg text-accent font-bold">{(song && song.name) && song.name}</p>
                <p className="italic text-sm">{(song && song.artist) && song.artist}</p>
             </div>

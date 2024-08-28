@@ -53,7 +53,7 @@ export default function Playlist() {
 
    const PlaylistInformation = (): JSX.Element => {
       return (
-         <div className='flex flex-col text-white'>
+         <div className='flex flex-col '>
             <p className='text-3xl'> {playlist.name} </p>
             <i> {totalDuration} </i>
          </div>
@@ -63,7 +63,6 @@ export default function Playlist() {
    const PlaylistDivider = (): JSX.Element => {
       const startPlayList = (): void => {
          setSong(songs[0]);
-         console.log(songs[0])
       }
       const deletePlaylist = (): void => {
          remove(ref(database, `/playlists/${playlist.id}`));
@@ -71,7 +70,7 @@ export default function Playlist() {
       }
 
       return (
-         <div className='flex gap-5 items-center text-white'>
+         <div className='flex gap-5 items-center '>
             <Link to={`/settings/publish/playlist/${playlist.id}`}>
                <img src={edit} alt='edit icon' loading='lazy' draggable={false} />
             </Link>
@@ -90,7 +89,7 @@ export default function Playlist() {
       return (
          <div className='flex flex-col'>
             {songs.map((song: SongProps, index: number) => (
-               <SongLink key={index} songParam={song} />
+               <SongLink key={index} songParam={song} delayIndex={index} />
             ))}
          </div>
       );

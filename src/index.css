@@ -37,7 +37,8 @@ body,
   font-family: 'Inter-Regular', sans-serif;
   height: 100dvh;
   width: 100dvw;
-  background-color: #000000;
+  background-color: #000000ff;
+  color: #ffffffff;
   overscroll-behavior: none;
 }
 
@@ -45,6 +46,7 @@ body,
   width: 0;
 }
 
-input {
+input,
+textarea {
   outline: none !important;
 }

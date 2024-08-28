@@ -15,13 +15,13 @@ export default function TabBar() {
       const resolvedPath = useResolvedPath(destination);
       const isMatch = useMatch({ path: resolvedPath.pathname, end: true });
       return (
-         <button className={`flex-1 ${isMatch && "text-white"}`}>
+         <button className='flex-1'>
             <Link className="flex flex-col items-center justify-center"
                to={destination}>
                <img src={icon} alt={`link to ${label}`} loading="lazy" draggable={false} />
-               <p className={`${isMatch ? 'text-white' : 'text-stack'}`}> {label} </p>
-            </Link>
-         </button>
+               <p> {isMatch && label} </p>
+            </Link >
+         </button >
       );
    }
 

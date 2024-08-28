@@ -11,7 +11,7 @@ export default function Shop() {
 
    const Information = () => {
       const InformationSingle = ({ label, value }: { label: string; value: boolean }) => (
-         <div className='w-full flex justify-between items-center text-white'>
+         <div className='w-full flex justify-between items-center '>
             <p>{label}</p>
             <img src={value ? check : close} alt={value ? 'check' : 'close'} />
          </div>
@@ -59,13 +59,13 @@ export default function Shop() {
    };
 
    const BuyButton = () => (
-      <button className='w-full p-5 text-xl text-white bg-accent rounded-xl'>
+      <button className='w-full p-5 text-xl  bg-accent rounded-xl'>
          {"Buy Now"}
       </button>
    );
 
    return (
-      <Page className='text-white flex flex-col gap-5 p-5'>
+      <Page className=' flex flex-col gap-5 p-5'>
          <MembershipImage />
          <Information />
          <BuyButton />

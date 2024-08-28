@@ -52,7 +52,7 @@ export default function DeviceStatus() {
    }
 
    return (
-      <div className='text-white flex justify-evenly items-center gap-2'>
+      <div className=' flex justify-evenly items-center gap-2'>
          <DeviceProperty icon={battery} value={batteryLevel !== null ? `${batteryLevel}%` : '...'} />
          <DeviceProperty icon={getPlatformIcon(agent)} value={agent} />
          <DeviceProperty icon={language} value={lang} />
