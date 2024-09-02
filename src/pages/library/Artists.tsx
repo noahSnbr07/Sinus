@@ -9,7 +9,7 @@ export default function Artists() {
       <Page scrollY>
          {
             data.artists.map((artist: ArtistProps) => (
-               <ArtistLink key={artist.id} artist={artist} />
+               <ArtistLink className="px-4" key={artist.id} artist={artist} />
             ))
          }
       </Page>

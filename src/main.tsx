@@ -8,25 +8,28 @@ import { PlayerProvider } from './context/PlayerProvider.tsx';
 import { AudioRefProvider } from './context/AudioRefProvider.tsx';
 import { DataProvider } from './context/DataProvider.tsx';
 import { UserProvider } from './context/UserProvider.tsx';
+import { ErrorBoundary } from 'react-error-boundary';
+import Error from './components/Error.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
+
     <BrowserRouter>
-      <DataProvider>
-
-        <SongProvider>
-          <AudioRefProvider>
-            <PlayerProvider>
-              <UserProvider>
-
-                <App />
-
-              </UserProvider>
-            </PlayerProvider>
-          </AudioRefProvider>
-        </SongProvider>
-
-      </DataProvider>
+      <ErrorBoundary
+        FallbackComponent={Error} // Use FallbackComponent to pass the error props
+      >
+        <DataProvider>
+          <SongProvider>
+            <AudioRefProvider>
+              <PlayerProvider>
+                <UserProvider>
+                  <App />
+                </UserProvider>
+              </PlayerProvider>
+            </AudioRefProvider>
+          </SongProvider>
+        </DataProvider>
+      </ErrorBoundary>
     </BrowserRouter>
-  </React.StrictMode>,
+  </React.StrictMode>
 );

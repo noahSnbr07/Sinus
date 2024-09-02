@@ -40,7 +40,7 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
             // Update the specific key in the data state
             setData(prevData => ({
                ...prevData,
-               [key]: updatedData
+               [key]: updatedData.length < 1 ? [] : updatedData
             }));
          }, (error) => {
             console.error(`Error fetching data from ${location}:`, error);

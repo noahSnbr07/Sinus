@@ -5,7 +5,11 @@ import { SongProps, TagProps } from '../../interfaces/interfaces';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-type SongLinkProps = { songParam: SongProps; className?: string; delayIndex: number; }
+type SongLinkProps = {
+   songParam: SongProps;
+   className?: string;
+   delayIndex: number;
+}
 
 export default function SongLink({ songParam, className, delayIndex }: SongLinkProps) {
 
@@ -29,10 +33,10 @@ export default function SongLink({ songParam, className, delayIndex }: SongLinkP
       <motion.button
          initial={{ opacity: 0, scale: 0, }}
          animate={{ opacity: 1, scale: 1, }}
-         transition={{ delay: delayIndex * 0.1, duration: 0.25, }}
+         transition={{ delay: delayIndex * 0.02, duration: 0.5, }}
          onClick={() => setSong(song)}
          tabIndex={1}
-         className={`lg:w-1/2 even:bg-light-1 even:border-b-2 border-stack flex xl:w-1/3 w-full ${className ? className : ''}`}>
+         className={`lg:w-1/2 flex xl:w-1/3 w-full ${className ? className : ''}`}>
 
          <Link
             to={`/player/${id}`}

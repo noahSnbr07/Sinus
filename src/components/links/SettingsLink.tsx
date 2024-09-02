@@ -8,7 +8,7 @@ export default function SettingsLink({ label = "", url = "/" }: SettingsLinkProp
    return (
       <Link
          to={url}
-         className='w-full justify-between p-5 flex gap-2 even:border-b-2 even:bg-light-1 border-stack'>
+         className='w-full justify-between p-4 flex gap-2 even:border-b-2 even:bg-light-1 border-stack'>
          <p> {label} </p>
          <img src={open} draggable={false} loading='lazy' />
       </Link >

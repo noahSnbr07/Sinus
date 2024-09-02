@@ -25,7 +25,7 @@ export default function VolumeManager() {
    const displayVolumeNumber = (): string => (volume * 100).toFixed(0)
 
    return (
-      <div className="bg-light-1 p-2 flex gap-2 rounded-xl items-center">
+      <div className="bg-light-1 p-4 flex gap-4 rounded-xl items-center">
          <img
             src={volumeIcon()}
             title="volume icon"
@@ -42,7 +42,7 @@ export default function VolumeManager() {
             className="flex-1 appearance-none bg-light-2 rounded-full h-3 accent-white"
             onChange={changeVolume}
          />
-         <span className="w-5 "> {displayVolumeNumber()} </span>
+         <span className=""> {displayVolumeNumber()} </span>
       </div>
    );
 }

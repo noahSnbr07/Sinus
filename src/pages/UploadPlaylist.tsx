@@ -131,7 +131,7 @@ export default function UploadPlaylist() {
    );
 
    return (
-      <Page scrollY className="flex flex-col gap-5 p-5 ">
+      <Page scrollY className="flex flex-col gap-4 p-4 ">
          <div className="flex flex-col gap-2">
             <p> Name your Playlist </p>
             <input
@@ -158,7 +158,7 @@ export default function UploadPlaylist() {
             />
             <p> Make My Playlist Public </p>
          </div>
-         <button onClick={uploadPlaylist} className="p-5 bg-accent  rounded-xl">
+         <button onClick={uploadPlaylist} className="p-4 bg-accent  rounded-xl">
             {"Create"}
          </button>
          <div className="flex flex-col gap-2">

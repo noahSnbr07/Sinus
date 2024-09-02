@@ -70,7 +70,7 @@ export default function Playlist() {
       }
 
       return (
-         <div className='flex gap-5 items-center '>
+         <div className='flex gap-4 items-center '>
             <Link to={`/settings/publish/playlist/${playlist.id}`}>
                <img src={edit} alt='edit icon' loading='lazy' draggable={false} />
             </Link>
@@ -96,7 +96,7 @@ export default function Playlist() {
    }
 
    return (
-      <Page className='p-5 flex flex-col gap-5 overflow-y-scroll'>
+      <Page className='p-4 flex flex-col gap-4 overflow-y-scroll'>
          <PlaylistImage />
          <PlaylistInformation />
          <PlaylistDivider />

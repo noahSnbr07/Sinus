@@ -37,7 +37,7 @@ export default function DeviceStatus() {
 
    const DeviceProperty = ({ icon, value }: { icon: string, value: string }): JSX.Element => {
       return (
-         <div className="flex gap-2 items-center bg-light-1 flex-1 p-2 rounded-xl justify-center">
+         <div className="flex gap-4 items-center bg-light-1 flex-1 p-4 rounded-xl justify-center">
             <img className='h-6' src={icon} alt={`icon ${icon}`} loading='lazy' draggable={false} />
             <p>{value}</p>
          </div>
@@ -52,8 +52,8 @@ export default function DeviceStatus() {
    }
 
    return (
-      <div className=' flex justify-evenly items-center gap-2'>
-         <DeviceProperty icon={battery} value={batteryLevel !== null ? `${batteryLevel}%` : '...'} />
+      <div className=' flex justify-evenly items-center gap-4'>
+         <DeviceProperty icon={battery} value={batteryLevel !== null ? `${batteryLevel.toFixed(0)}%` : '...'} />
          <DeviceProperty icon={getPlatformIcon(agent)} value={agent} />
          <DeviceProperty icon={language} value={lang} />
       </div>

@@ -36,12 +36,12 @@ export default function Message() {
 
 
    return (
-      <Page className='p-5 flex flex-col gap-5 items-center'>
+      <Page className='p-4 flex flex-col gap-4 items-center'>
          <p className='text-xl'> {"Edit Quick Message On Home Screen"} </p>
          <textarea
             onChange={(e: ChangeEvent<HTMLTextAreaElement>) => { setMessage(e.target.value) }}
             value={message}
-            className='flex-1 bg-light-1 w-full rounded-xl p-5' />
+            className='flex-1 bg-light-1 w-full rounded-xl p-4' />
          <input
             className='w-full bg-light-1 p-2 rounded-xl text-center'
             placeholder='Enter Submit Code'
@@ -52,7 +52,7 @@ export default function Message() {
             onChange={(e: ChangeEvent<HTMLInputElement>) => { setPassword(e.target.value) }} />
          <button
             onClick={(submitNewQuickMessage)}
-            className='p-5 text-xl text-bold bg-accent w-full rounded-xl'> Submit </button>
+            className='p-4 text-xl text-bold bg-accent w-full rounded-xl'> Submit </button>
       </Page>
    );
 }

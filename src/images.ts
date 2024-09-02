@@ -50,6 +50,7 @@ import bin from './assets/svg/bin.svg';
 import shuffle from './assets/svg/shuffle.svg';
 import repeat from './assets/svg/repeat.svg';
 import autoplay from './assets/svg/autoplay.svg';
+import share from './assets/svg/share.svg';
 
 //tiers
 import basic from './assets/tiers/basic.png';
@@ -119,4 +120,5 @@ export {
    bin,
    repeat,
    autoplay,
+   share
 };

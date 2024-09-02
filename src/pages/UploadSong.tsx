@@ -150,7 +150,7 @@ export default function UploadSong() {
    }
 
    return (
-      <Page scrollY className='flex flex-col gap-5 p-5'>
+      <Page scrollY className='flex flex-col gap-4 p-4'>
          <audio autoPlay ref={audioRef} src={newSong.audio && newSong.audio} />
          <div className='flex flex-col gap-2'>
             <p className=' italic'>Naming</p>
@@ -197,7 +197,7 @@ export default function UploadSong() {
             <i className=''>
                {"Select Song Highlight"}
             </i>
-            <div className='flex gap-5'>
+            <div className='flex gap-4'>
                <div className='flex gap-2 w-full items-center'>
                   <input
                      className='flex-1 accent-white appearance-none bg-stack rounded-full h-2'
@@ -234,11 +234,11 @@ export default function UploadSong() {
             </span>
          </div>
          {uploadProgress === 100 ? (
-            <button onClick={upload} className='bg-accent  p-5 rounded-xl text-xl'>
+            <button onClick={upload} className='bg-accent  p-4 rounded-xl text-xl'>
                {" Publish to Sinus"}
             </button>
          ) : (
-            <div style={{ width: `${uploadProgress + '%'}` }} className=' p-5 rounded-xl bg-accent flex gap-1'>
+            <div style={{ width: `${uploadProgress + '%'}` }} className=' p-4 rounded-xl bg-accent flex gap-1'>
                <p className=''> {uploadProgress} </p>
                <p className=''> {"%"} </p>
             </div>

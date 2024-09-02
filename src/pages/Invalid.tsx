@@ -7,7 +7,7 @@ export default function Invalid() {
    const palette = useColorPalette();
    return (
       <Page className='flex flex-col'>
-         <Link to={"/"} className="flex flex-col items-center gap-5">
+         <Link to={"/"} className="flex flex-col items-center gap-4">
             {"This site is currently under construction"}
             <BarLoader color={palette.accent} />
          </Link>

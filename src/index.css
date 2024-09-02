@@ -29,17 +29,17 @@
   -webkit-user-select: none;
   margin: 0;
   padding: 0;
+  @apply text-white;
+  overscroll-behavior: none;
+  font-family: 'Inter-Regular', sans-serif;
 }
 
 html,
 body,
 #root {
-  font-family: 'Inter-Regular', sans-serif;
   height: 100dvh;
   width: 100dvw;
-  background-color: #000000ff;
-  color: #ffffffff;
-  overscroll-behavior: none;
+  @apply bg-black;
 }
 
 ::-webkit-scrollbar {
@@ -49,4 +49,8 @@ body,
 input,
 textarea {
   outline: none !important;
+}
+
+button:active {
+  opacity: 0.5;
 }

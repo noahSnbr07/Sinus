@@ -12,3 +12,6 @@ https://notube.cc/de/youtube-app-1
 
 # Update Production Site
 https://app.netlify.com/sites/sinus/deploys
+
+# GitHub Repository
+https://github.com/noahSnbr07/Sinus/

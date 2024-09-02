@@ -9,7 +9,7 @@ export default function Memberships() {
    const memberships: Array<MembershipProps> = [...membershipsJSON];
 
    return (
-      <Page className=' p-5 flex flex-col gap-5 items-center' scrollY>
+      <Page className=' p-4 flex flex-col gap-4 items-center' scrollY>
          {memberships.map((membership: MembershipProps) => <MembershipLink
             adFree={membership.adFree}
             key={membership.id}

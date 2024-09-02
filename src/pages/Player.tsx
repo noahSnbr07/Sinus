@@ -74,7 +74,7 @@ export default function Player() {
 
       //progressbar to indicate song current time
       const ProgressBar = () => (
-         <div className='flex justify-between items-center gap-5'>
+         <div className='flex justify-between items-center gap-4'>
             <span> {secondsToTimeString(player.progress, false)} </span>
             <input
                type='range'
@@ -95,7 +95,7 @@ export default function Player() {
             </button>
             <button
                onClick={() => player.togglePlayer()}
-               className='bg-white rounded-full h-20 p-5 aspect-square grid place-items-center'>
+               className='bg-white rounded-full h-20 p-4 aspect-square grid place-items-center'>
                <img
                   className='h-full aspect-square'
                   src={player.isPlaying ? pause_black : play}
@@ -110,7 +110,7 @@ export default function Player() {
       );
 
       return (
-         <section className='flex flex-col gap-5  p-5 '>
+         <section className='flex flex-col gap-4  p-4 '>
             <NameAndArtist />
             <ProgressBar />
             <Buttons />

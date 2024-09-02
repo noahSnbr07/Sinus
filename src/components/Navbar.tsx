@@ -28,12 +28,10 @@ export default function Navbar() {
          message: path === '/settings/message',
       }
       const isInLibrary: boolean = path === '/library/songs' || path === '/library/playlists' || path == '/library/artists';
-      const isInSlices: boolean = path.includes("/slices");
       const isInShop: boolean = path.includes("/shop/");
 
       if (isInSettings.base) navigate("/");
       if (isInShop) navigate("/settings/membership");
-      if (isInSlices) navigate("/");
       if (
          isInSettings.account ||
          isInSettings.membership ||
@@ -55,8 +53,8 @@ export default function Navbar() {
    };
 
    return (
-      <header className={`w-screen h-20 bg-light-1`}>
-         <nav className='w-full h-full flex items-center px-5'>
+      <header className={`bg-light-1 p-4`}>
+         <nav className='flex items-center'>
             <div className='flex'>
                <button className='mr-2' onClick={() => goBack(location.pathname)}>
                   {!isHomePath && <img src={back} alt='back button icon' draggable={false} />}

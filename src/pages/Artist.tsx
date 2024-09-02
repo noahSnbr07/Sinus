@@ -42,7 +42,7 @@ export default function Artist() {
 
       return (
          <div className='flex justify-between'>
-            <div className='flex gap-5'>
+            <div className='flex gap-4'>
                <button onClick={toggleFollow} className='border-white py-1 w-20 rounded-xl'>
                   {isFollowing ? 'Unfollow' : 'Follow'}
                </button>
@@ -75,11 +75,11 @@ export default function Artist() {
    };
 
    return (
-      <Page scrollY className='flex flex-col gap-5'>
+      <Page scrollY className='flex flex-col gap-4'>
          <div style={headerImageStyle} className='h-64 bg-stack flex items-end px-5 py-2 pt-64'>
             <p className='text-5xl'> {name} </p>
          </div>
-         <div className='px-5 flex flex-col gap-5'>
+         <div className='px-5 flex flex-col gap-4'>
             <QuickActionsPanel />
             <ArtistFilteredSongs />
          </div>

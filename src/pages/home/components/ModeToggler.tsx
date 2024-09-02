@@ -28,7 +28,7 @@ export default function ModeToggler() {
       return (
          <button
             onClick={setMode}
-            className={`rounded-xl flex-1 p-5 grid place-content-center ${(player.mode === label) && 'bg-light-2'}`}>
+            className={`rounded-xl p-4 flex-1 grid place-content-center ${(player.mode === label) && 'bg-light-2'}`}>
             <img src={icon} loading="lazy" draggable={false} title={`${label} icon`} />
          </button>
       )

@@ -18,7 +18,7 @@ export default function Shop() {
       );
 
       return (
-         <div className='flex flex-col gap-5'>
+         <div className='flex flex-col gap-4'>
             <div className='flex flex-col gap-2'>
                <p className='text-center text-2xl'> {membership.name} </p>
                <p className='italic text-center'> {membership.description} </p>
@@ -59,13 +59,13 @@ export default function Shop() {
    };
 
    const BuyButton = () => (
-      <button className='w-full p-5 text-xl  bg-accent rounded-xl'>
+      <button className='w-full p-4 text-xl  bg-accent rounded-xl'>
          {"Buy Now"}
       </button>
    );
 
    return (
-      <Page className=' flex flex-col gap-5 p-5'>
+      <Page className=' flex flex-col gap-4 p-4'>
          <MembershipImage />
          <Information />
          <BuyButton />

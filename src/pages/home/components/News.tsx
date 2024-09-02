@@ -29,7 +29,7 @@ function NewsArticle({ title, body, isExpanded, publisher }: NewsArticleProps): 
 
    //all data of the publisher of the user
    const PublisherPart = (): JSX.Element => (
-      <div className='flex gap-5 items-center flex-wrap'>
+      <div className='flex gap-4 items-center flex-wrap'>
          <img
             className='h-10 rounded-full'
             src={developer}

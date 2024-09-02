@@ -31,19 +31,21 @@ export const PlayerProvider: React.FC<{ children: ReactNode }> = ({ children }):
    const [player, setPlayer] = useState<PlayerProps>(initialValue);
 
    //media session provider 
-   if ("mediaSession" in navigator) {
-      navigator.mediaSession.metadata = new MediaMetadata({
-         title: song && song.name,
-         artist: song && song.artist,
+   if (song) {
+      if ("mediaSession" in navigator) {
+         navigator.mediaSession.metadata = new MediaMetadata({
+            title: song.name,
+            artist: song.artist,
 
-         artwork: [
-            {
-               src: song && song.cover,
-               sizes: "640x640",
-               type: "image/png",
-            },
-         ],
-      });
+            artwork: [
+               {
+                  src: song.cover,
+                  sizes: "640x640",
+                  type: "image/png",
+               },
+            ],
+         });
+      }
 
       navigator.mediaSession.setActionHandler("play", () => {
          player.play();
@@ -95,7 +97,7 @@ export const PlayerProvider: React.FC<{ children: ReactNode }> = ({ children }):
 
       if (nextIndex >= data.songs.length) setSong(data.songs[0]);
       else setSong(data.songs[nextIndex]);
-   };
+   }
 
    const skipPrevLocal = () => {
       const currentIndex = data.songs.findIndex(s => s.id === song.id);

@@ -1,5 +1,5 @@
 import { Link, useMatch, useResolvedPath, } from "react-router-dom";
-import { equalizer, home, player, settings } from "../images";
+import { home, player, settings } from "../images";
 import { useSong } from "../hooks/useSong";
 
 export default function TabBar() {
@@ -28,12 +28,11 @@ export default function TabBar() {
    const tabBarLinks: TabBarLinkProps[] = [
       { destination: "/", label: "Home", icon: home },
       { destination: `/player/${(song && song.id) && song.id}`, label: "Player", icon: player },
-      { destination: `/slices`, label: "Slices", icon: equalizer },
       { destination: "/settings", label: "Settings", icon: settings },
    ];
 
    return (
-      <div className="w-full h-20 bg-light-1 text-stack-neutral p-2 flex">
+      <div className="p-4 bg-light-1 text-stack-neutral flex">
          {tabBarLinks.map((link: TabBarLinkProps, index: number) => <TabBarLink
             key={index}
             destination={link.destination}

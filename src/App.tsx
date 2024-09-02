@@ -9,7 +9,6 @@ import TabBar from "./components/TabBar";
 import UserAgreement from "./pages/UserAgreement";
 import Invalid from "./pages/Invalid";
 import Settings from "./pages/Settings";
-import Slices from "./pages/slices/Slices";
 import Playlist from "./pages/Playlist";
 import Artist from "./pages/Artist";
 import Songs from "./pages/library/Songs";
@@ -26,18 +25,29 @@ import Issues from "./pages/settings/Issues";
 import UploadSong from "./pages/UploadSong";
 import UploadPlaylist from "./pages/UploadPlaylist";
 import Message from "./pages/Message";
+import { getProfile, initialize, isInitialized } from "./functions/preferenceManager";
 
 export default function App() {
   const { setReference } = useAudioRef();
   const audioRef: Ref<HTMLAudioElement> = useRef<HTMLAudioElement>(null);
   const { song } = useSong();
 
+  useEffect(() => {
+    const isPresent: boolean = isInitialized();
+    if (!isPresent) initialize();
+    else {
+      console.log("Preference Profile Present in LS");
+      const profile = getProfile();
+      console.log(`profile: ${profile}`);
+    }
+  });
+
   useEffect(() => { setReference(audioRef) }, [setReference]);
 
   return (
     <div className="flex flex-col h-screen w-screen">
       <Navbar />
-      <div className="h-[calc(100%-10rem)] flex flex-col">
+      <div className="flex flex-1 flex-col overflow-y-scroll">
         <Routes>
           {/* config routes */}
           <Route index element={<Home />} />
@@ -58,7 +68,6 @@ export default function App() {
           {/*  */}
           <Route path="/user-Agreement" element={<UserAgreement />} />
           <Route path="/shop/:membershipID" element={<Shop />} />
-          <Route path="/slices" element={<Slices />} />
 
           {/* settings tabs */}
           <Route path="/settings" element={<Settings />} />
@@ -78,6 +87,6 @@ export default function App() {
       </div>
       <TabBar />
       <audio src={(song && song.audio) ? song.audio : ''} ref={audioRef} />
-    </div >
+    </div>
   );
 }

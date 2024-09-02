@@ -52,7 +52,7 @@ export default function Report() {
    }
 
    return (
-      <Page className='flex flex-col gap-5 p-5'>
+      <Page className='flex flex-col gap-4 p-4'>
          <input
             className='bg-light-1  rounded-xl p-2'
             placeholder='Topic'
@@ -69,7 +69,7 @@ export default function Report() {
             placeholder='describe your issue here'
             onChange={(e: ChangeEvent<HTMLTextAreaElement>) => updateBody(e.target.value)}
          />
-         <button className='bg-accent p-5  rounded-xl' onClick={sendReport}>
+         <button className='bg-accent p-4  rounded-xl' onClick={sendReport}>
             {"Send Report"}
          </button>
       </Page>

@@ -20,6 +20,7 @@ export default function SuggestedSongs() {
       return shuffledSongs.slice(0, 3);
    };
 
+   //assign the songs
    useEffect(() => {
       const selectedSongs = getSuggestedSongs();
       setFiveSuggestedSongs(selectedSongs);
@@ -47,7 +48,7 @@ export default function SuggestedSongs() {
    }
 
    return (
-      <div className='rounded-xl flex flex-col  bg-light-1 p-2 gap-2'>
+      <div className='rounded-xl flex flex-col bg-light-1 p-4 gap-4'>
          <div className='text-xl flex gap-2'>
             <img
                src={shuffle}
@@ -57,7 +58,7 @@ export default function SuggestedSongs() {
                loading='lazy' />
             <p className='font-bold text-xl'> {"Try these"} </p>
          </div>
-         <div className='flex gap-2 w-full'>
+         <div className='flex gap-4 w-full'>
             <RenderedSongs />
          </div>
       </div>

@@ -7,7 +7,7 @@ export default function Issues() {
    const { data } = useData();
 
    return (
-      <Page scrollY className='p-5 flex flex-col gap-5 '>
+      <Page scrollY className='p-4 flex flex-col gap-4 '>
          {data.reports.map((report: BugReportProps) =>
             <ReportCard key={report.id} report={report} />
          )}
